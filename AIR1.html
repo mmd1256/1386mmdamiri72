@@ -1,0 +1,4512 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نایک ایرفورس | فروشگاه آنلاین</title>
+    <meta name="description" content="خرید آنلاین کفش نایک ایرفورس با کیفیت اصل، گارانتی بازگشت و ارسال سریع به سراسر کشور">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        /* ویژگی‌های پایه */
+        :root {
+            --primary: #5D3FD3;
+            --primary-hover: #4A3AAA;
+            --secondary: #f8fafc;
+            --accent: #FF4E50;
+            --success: #10B981;
+            --warning: #F59E0B;
+            --info: #3B82F6;
+            --bg-gradient: linear-gradient(135deg, #5D3FD3, #7067CF);
+            --subtle-gradient: linear-gradient(to right, rgba(93, 63, 211, 0.05), rgba(112, 103, 207, 0.05));
+            --surface: #ffffff;
+            --surface-hover: #F9FAFB;
+            --text: #181823;
+            --text-light: #5b6674;
+            --text-lighter: #94a3b8;
+            --border: #e2e8f0;
+            --border-dark: #cbd5e1;
+            --shadow-sm: 0px 2px 8px rgba(0, 0, 0, 0.08);
+            --shadow: 0px 4px 16px rgba(0, 0, 0, 0.12);
+            --shadow-lg: 0px 8px 30px rgba(0, 0, 0, 0.16);
+            --radius-sm: 8px;
+            --radius: 16px;
+            --radius-lg: 24px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* استایل‌های پایه */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Vazir', sans-serif;
+        }
+
+        body {
+            background: #f5f7fa;
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+
+        /* نوار مسیر */
+        .product-nav {
+            background: var(--surface);
+            padding: 1rem 1.5rem;
+            border-radius: var(--radius);
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow-sm);
+            backdrop-filter: blur(8px);
+            position: sticky;
+            top: 1rem;
+            z-index: 100;
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+        }
+
+        .breadcrumb a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .breadcrumb a:hover {
+            color: var(--primary);
+        }
+
+        /* کارت محصول */
+        .product-card {
+            background: var(--surface);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2.5rem;
+            padding: 2.5rem;
+        }
+
+        /* گالری محصول */
+        .product-gallery {
+            position: relative;
+            width: 100%;
+        }
+
+        .main-image-container {
+            position: relative;
+            border-radius: var(--radius);
+            overflow: hidden;
+            aspect-ratio: 1;
+            box-shadow: var(--shadow-sm);
+            cursor: zoom-in;
+        }
+
+        .main-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .main-image-container:hover .main-image {
+            transform: scale(1.05);
+        }
+
+        .image-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.1);
+            opacity: 0;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .main-image-container:hover .image-overlay {
+            opacity: 1;
+        }
+
+        .gallery-controls {
+            position: absolute;
+            bottom: 15px;
+            left: 15px;
+            display: flex;
+            gap: 8px;
+        }
+
+        .gallery-control {
+            background: rgba(255,255,255,0.9);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .gallery-control:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .zoom-button {
+            background: rgba(255,255,255,0.9);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .zoom-button:hover {
+            transform: scale(1.1);
+            background: var(--primary);
+            color: white;
+        }
+
+        .thumbnails {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .thumbnail {
+            width: 100%;
+            aspect-ratio: 1;
+            object-fit: cover;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            transition: var(--transition);
+            border: 2px solid transparent;
+            filter: saturate(0.8);
+        }
+
+        .thumbnail:hover {
+            transform: translateY(-4px);
+            filter: saturate(1.2);
+        }
+
+        .thumbnail.active {
+            border-color: var(--primary);
+            filter: saturate(1.2);
+        }
+
+        .view-360-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(255,255,255,0.9);
+            color: var(--primary);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        /* اطلاعات محصول */
+        .product-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1.75rem;
+        }
+
+        .product-header {
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 1.25rem;
+        }
+
+        .product-badges {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+
+        .product-badge {
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 3px 8px;
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+
+        .badge-new {
+            background: var(--info);
+            color: white;
+        }
+
+        .badge-bestseller {
+            background: var(--warning);
+            color: white;
+        }
+
+        .product-category {
+            color: var(--primary);
+            font-size: 0.875rem;
+            font-weight: 600;
+            display: inline-block;
+            background: rgba(93, 63, 211, 0.1);
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-bottom: 8px;
+        }
+
+        .product-title {
+            font-size: 2rem;
+            margin: 0.5rem 0;
+            color: var(--text);
+            line-height: 1.3;
+        }
+
+        .product-rating {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin: 0.75rem 0;
+        }
+
+        .stars {
+            display: flex;
+            gap: 2px;
+        }
+
+        .stars i {
+            color: #F59E0B;
+            font-size: 1rem;
+        }
+
+        .reviews-count {
+            color: var(--text-light);
+            font-size: 0.875rem;
+        }
+
+        .reviews-count a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .reviews-count a:hover {
+            text-decoration: underline;
+        }
+
+        .price-section {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .current-price {
+            font-size: 1.75rem;
+            font-weight: bold;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+        }
+
+        .old-price {
+            text-decoration: line-through;
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+
+        .discount-badge {
+            background: var(--accent);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+
+        .product-availability {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        .in-stock {
+            color: var(--success);
+            font-weight: 600;
+        }
+
+        .low-stock {
+            color: var(--warning);
+            font-weight: 600;
+        }
+
+        .out-of-stock {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .product-description {
+            line-height: 1.8;
+            color: var(--text-light);
+            font-size: 1rem;
+        }
+
+        /* انتخاب رنگ */
+        .color-options {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.25rem;
+        }
+
+        .color-option {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: 2px solid var(--border);
+            cursor: pointer;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .color-option:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .color-option.selected {
+            border-color: var(--primary);
+            transform: scale(1.1);
+        }
+
+        .color-option.selected::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            border: 2px solid white;
+            box-shadow: 0 0 0 2px var(--primary);
+        }
+
+        .color-white {
+            background: #ffffff;
+        }
+
+        .color-black {
+            background: #000000;
+        }
+
+        .color-red {
+            background: #e53e3e;
+        }
+
+        .color-blue {
+            background: #3182ce;
+        }
+
+        /* انتخاب سایز و تعداد */
+        .options-section {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        .options-section h3 {
+            font-size: 1.1rem;
+            color: var(--text);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .size-help {
+            font-size: 0.875rem;
+            color: var(--primary);
+            background: none;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            padding: 4px 8px;
+            border-radius: 4px;
+            transition: var(--transition);
+            margin-right: auto;
+        }
+
+        .size-help:hover {
+            background: rgba(93, 63, 211, 0.1);
+        }
+
+        .size-options {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .size-option {
+            width: 50px;
+            height: 50px;
+            border: 2px solid var(--border);
+            border-radius: var(--radius-sm);
+            background: var(--surface);
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .size-option:hover:not(.unavailable) {
+            border-color: var(--primary);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .size-option.selected {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+            box-shadow: 0 4px 12px rgba(93, 63, 211, 0.3);
+        }
+
+        .size-option.unavailable {
+            border-color: var(--border);
+            color: var(--text-lighter);
+            background: #f1f5f9;
+            cursor: not-allowed;
+        }
+
+        .size-option.unavailable::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--text-lighter);
+            transform: rotate(-45deg);
+        }
+
+        .quantity-selector {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+        }
+
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+            border: 2px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 0.25rem;
+            background: var(--surface);
+        }
+
+        .quantity-btn {
+            width: 36px;
+            height: 36px;
+            border: none;
+            background: var(--secondary);
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .quantity-btn:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .quantity-display {
+            width: 40px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        /* ویژگی‌ها */
+        .features-list {
+            display: grid;
+            gap: 1rem;
+            background: rgba(93, 63, 211, 0.05);
+            padding: 1.25rem;
+            border-radius: var(--radius);
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: var(--text-light);
+        }
+
+        .feature-item i {
+            color: var(--primary);
+            font-size: 1.1rem;
+        }
+
+        /* دکمه افزودن به سبد */
+        .action-buttons {
+            margin-top: 1rem;
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        .add-to-cart {
+            flex: 1;
+            padding: 1.25rem;
+            background: var(--bg-gradient);
+            color: white;
+            border: none;
+            border-radius: var(--radius);
+            font-size: 1.1rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 4px 12px rgba(93, 63, 211, 0.3);
+        }
+
+        .add-to-cart:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(93, 63, 211, 0.4);
+        }
+
+        .action-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: var(--radius-sm);
+            border: 2px solid var(--border);
+            background: var(--surface);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            color: var(--text-light);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .action-btn:hover {
+            color: var(--primary);
+            border-color: var(--primary);
+            transform: translateY(-4px);
+        }
+
+        .action-btn.active {
+            color: var(--primary);
+            border-color: var(--primary);
+            background: rgba(93, 63, 211, 0.1);
+        }
+
+        /* شبکه‌های اجتماعی */
+        .social-media {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .social-media h3 {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 16px;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: var(--transition);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .social-link i {
+            font-size: 1.25rem;
+        }
+
+        .telegram {
+            background: rgba(0, 136, 204, 0.1);
+            color: #0088cc;
+        }
+
+        .telegram:hover {
+            background: #0088cc;
+            color: white;
+            transform: translateY(-4px);
+        }
+
+        .whatsapp {
+            background: rgba(37, 211, 102, 0.1);
+            color: #25d366;
+        }
+
+        .whatsapp:hover {
+            background: #25d366;
+            color: white;
+            transform: translateY(-4px);
+        }
+
+        /* مدال بزرگنمایی */
+        .zoom-modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.9);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1100;
+            backdrop-filter: blur(8px);
+        }
+
+        .zoom-content {
+            position: relative;
+            max-width: 90vw;
+            max-height: 90vh;
+        }
+
+        .zoom-content img {
+            max-width: 100%;
+            max-height: 90vh;
+            object-fit: contain;
+            border-radius: var(--radius);
+        }
+
+        .close-zoom {
+            position: absolute;
+            top: -3rem;
+            right: 0;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            font-size: 2rem;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .close-zoom:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: rotate(90deg);
+        }
+
+        .zoom-thumbnails {
+            position: absolute;
+            bottom: -4rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            border-radius: var(--radius);
+        }
+
+        .zoom-thumbnail {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 4px;
+            cursor: pointer;
+            opacity: 0.6;
+            transition: var(--transition);
+        }
+
+        .zoom-thumbnail:hover {
+            opacity: 1;
+            transform: translateY(-3px);
+        }
+
+        .zoom-thumbnail.active {
+            opacity: 1;
+            border: 2px solid white;
+        }
+
+        .zoom-arrows {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 2rem;
+            transform: translateY(-50%);
+        }
+
+        .zoom-arrow {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .zoom-arrow:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        /* مدال راهنمای سایز */
+        .size-guide-modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1100;
+            backdrop-filter: blur(4px);
+        }
+
+        .size-guide-content {
+            background: var(--surface);
+            border-radius: var(--radius);
+            width: 90%;
+            max-width: 600px;
+            max-height: 90vh;
+            overflow-y: auto;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .close-size-guide {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .close-size-guide:hover {
+            background: var(--secondary);
+            color: var(--accent);
+        }
+
+        .size-guide-content h3 {
+            margin-bottom: 1.5rem;
+            color: var(--text);
+            font-size: 1.5rem;
+        }
+
+        .size-guide-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1.5rem;
+        }
+
+        .size-guide-table th,
+        .size-guide-table td {
+            padding: 0.75rem 1rem;
+            text-align: center;
+            border: 1px solid var(--border);
+        }
+
+        .size-guide-table th {
+            background: var(--subtle-gradient);
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .size-guide-table tr:nth-child(even) {
+            background: var(--secondary);
+        }
+
+        .size-guide-tips {
+            background: var(--subtle-gradient);
+            padding: 1rem;
+            border-radius: var(--radius-sm);
+            margin-top: 1.5rem;
+        }
+
+        .size-guide-tips h4 {
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+            font-size: 1.1rem;
+        }
+
+        .size-guide-tips ul {
+            list-style-position: inside;
+            padding-right: 1rem;
+        }
+
+        .size-guide-tips li {
+            margin-bottom: 0.5rem;
+            color: var(--text-light);
+        }
+
+        /* مدال اشتراک‌گذاری */
+        .share-modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1100;
+            backdrop-filter: blur(4px);
+        }
+
+        .share-content {
+            background: var(--surface);
+            border-radius: var(--radius);
+            width: 90%;
+            max-width: 400px;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .close-share {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .close-share:hover {
+            background: var(--secondary);
+            color: var(--accent);
+        }
+
+        .share-content h3 {
+            margin-bottom: 1.5rem;
+            color: var(--text);
+            font-size: 1.3rem;
+        }
+
+        .share-options {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .share-option {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 0.5rem;
+            padding: 1rem;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .share-option i {
+            font-size: 1.75rem;
+        }
+
+        .share-option span {
+            font-size: 0.85rem;
+            color: var(--text);
+        }
+
+        .share-whatsapp {
+            background: rgba(37, 211, 102, 0.1);
+            color: #25d366;
+        }
+
+        .share-whatsapp:hover {
+            background: #25d366;
+            color: white;
+            transform: translateY(-4px);
+        }
+
+        .share-whatsapp:hover span {
+            color: white;
+        }
+
+        .share-telegram {
+            background: rgba(0, 136, 204, 0.1);
+            color: #0088cc;
+        }
+
+        .share-telegram:hover {
+            background: #0088cc;
+            color: white;
+            transform: translateY(-4px);
+        }
+
+        .share-telegram:hover span {
+            color: white;
+        }
+
+        .share-email {
+            background: rgba(234, 88, 12, 0.1);
+            color: #ea580c;
+        }
+
+        .share-email:hover {
+            background: #ea580c;
+            color: white;
+            transform: translateY(-4px);
+        }
+
+        .share-email:hover span {
+            color: white;
+        }
+
+        .share-twitter {
+            background: rgba(29, 161, 242, 0.1);
+            color: #1da1f2;
+        }
+
+        .share-twitter:hover {
+            background: #1da1f2;
+            color: white;
+            transform: translateY(-4px);
+        }
+
+        .share-twitter:hover span {
+            color: white;
+        }
+
+        .share-facebook {
+            background: rgba(59, 89, 152, 0.1);
+            color: #3b5998;
+        }
+
+        .share-facebook:hover {
+            background: #3b5998;
+            color: white;
+            transform: translateY(-4px);
+        }
+
+        .share-facebook:hover span {
+            color: white;
+        }
+
+        .share-link {
+            background: rgba(93, 63, 211, 0.1);
+            color: var(--primary);
+        }
+
+        .share-link:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-4px);
+        }
+
+        .share-link:hover span {
+            color: white;
+        }
+
+        .share-link-area {
+            position: relative;
+            margin-top: 1rem;
+        }
+
+        .share-url {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            font-family: inherit;
+            background: var(--secondary);
+        }
+
+        .copy-link {
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 0.25rem 0.5rem;
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .copy-link:hover {
+            background: var(--primary-hover);
+        }
+
+        /* سبد خرید شناور */
+        .floating-cart {
+            position: fixed;
+            bottom: 2.5rem;
+            left: 2.5rem;
+            z-index: 1000;
+        }
+
+        .cart-toggle {
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            background: var(--bg-gradient);
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 6px 16px rgba(93, 63, 211, 0.25);
+            transition: var(--transition);
+        }
+
+        .cart-toggle:hover {
+            transform: translateY(-6px) scale(1.05);
+            box-shadow: 0 10px 20px rgba(93, 63, 211, 0.35);
+        }
+
+        #cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: var(--accent);
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            font-size: 0.875rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            border: 2px solid white;
+        }
+
+        /* مدال سبد خرید */
+        .cart-modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.25);
+            display: none;
+            justify-content: flex-end;
+            z-index: 1001;
+            backdrop-filter: blur(8px);
+        }
+
+        .cart-content {
+            background: var(--surface);
+            width: 420px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            animation: slideIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            box-shadow: -5px 0 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .cart-header {
+            padding: 1.75rem;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--surface);
+            position: sticky;
+            top: 0;
+            z-index: 2;
+        }
+
+        .cart-header h2 {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.35rem;
+            color: var(--text);
+        }
+
+        .cart-header .cart-count {
+            background: var(--primary);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.875rem;
+        }
+
+        .close-cart {
+            background: none;
+            border: none;
+            font-size: 1.75rem;
+            color: var(--text-light);
+            cursor: pointer;
+            padding: 8px;
+            transition: var(--transition);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .close-cart:hover {
+            color: var(--accent);
+            background: rgba(255, 78, 80, 0.1);
+        }
+
+        .cart-body {
+            flex: 1;
+            overflow-y: auto;
+            padding: 1.75rem;
+        }
+
+        .cart-items {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        .cart-item {
+            display: flex;
+            gap: 1.25rem;
+            padding: 1.25rem;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            background: var(--surface);
+            transition: var(--transition);
+        }
+
+        .cart-item:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow);
+        }
+
+        .cart-item img {
+            width: 90px;
+            height: 90px;
+            object-fit: cover;
+            border-radius: var(--radius-sm);
+        }
+
+        .cart-item-details {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .cart-item-details h3 {
+            font-size: 1.1rem;
+            color: var(--text);
+            margin: 0;
+        }
+
+        .cart-item-details p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin: 0;
+        }
+
+        .cart-item-quantity {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin: 0.75rem 0;
+        }
+
+        .cart-item-quantity button {
+            width: 30px;
+            height: 30px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            background: var(--surface);
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .cart-item-quantity button:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .cart-item-quantity span {
+            width: 32px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .remove-item {
+            background: none;
+            border: none;
+            color: var(--text-light);
+            cursor: pointer;
+            padding: 6px;
+            transition: var(--transition);
+            border-radius: 50%;
+            width: 34px;
+            height: 34px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .remove-item:hover {
+            color: var(--accent);
+            background: rgba(255, 78, 80, 0.1);
+        }
+
+        .cart-summary {
+            margin-top: 1.75rem;
+            padding: 1.25rem;
+            background: rgba(93, 63, 211, 0.05);
+            border-radius: var(--radius);
+        }
+
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.75rem 0;
+            color: var(--text);
+        }
+
+        .summary-item.total {
+            font-weight: bold;
+            border-top: 1px solid var(--border);
+            margin-top: 0.75rem;
+            padding-top: 1.25rem;
+            font-size: 1.1rem;
+        }
+
+        .cart-footer {
+            padding: 1.75rem;
+            border-top: 1px solid var(--border);
+            background: var(--surface);
+            position: sticky;
+            bottom: 0;
+            z-index: 2;
+        }
+
+        .discount-code {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .discount-code input {
+            flex: 1;
+            padding: 0.875rem 1.25rem;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            font-family: inherit;
+            transition: var(--transition);
+        }
+
+        .discount-code input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(93, 63, 211, 0.1);
+        }
+
+        .discount-code button {
+            padding: 0.875rem 1.25rem;
+            background: var(--secondary);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            cursor: pointer;
+            transition: var(--transition);
+            white-space: nowrap;
+            font-weight: 500;
+        }
+
+        .discount-code button:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .checkout-btn {
+            width: 100%;
+            padding: 1.25rem;
+            background: var(--bg-gradient);
+            color: white;
+            border: none;
+            border-radius: var(--radius);
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+            transition: var(--transition);
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(93, 63, 211, 0.3);
+        }
+
+        .checkout-btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(93, 63, 211, 0.4);
+        }
+
+        .clear-cart-btn {
+            width: 100%;
+            padding: 1rem;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            color: var(--text);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+
+        .clear-cart-btn:hover {
+            background: rgba(255, 78, 80, 0.1);
+            color: var(--accent);
+            border-color: var(--accent);
+        }
+
+        .empty-cart {
+            text-align: center;
+            padding: 3rem 1.5rem;
+            color: var(--text-light);
+        }
+
+        .empty-cart i {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.5;
+            color: var(--primary);
+        }
+
+        .empty-cart p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .empty-cart button {
+            padding: 0.875rem 1.5rem;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: var(--radius);
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+
+        .empty-cart button:hover {
+            background: var(--primary-hover);
+            transform: translateY(-4px);
+        }
+
+        /* تب‌های محصول */
+        .product-tabs {
+            background: var(--surface);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+
+        .tabs-header {
+            display: flex;
+            border-bottom: 1px solid var(--border);
+            position: relative;
+        }
+
+        .tab-btn {
+            padding: 1.25rem 2rem;
+            background: none;
+            border: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-light);
+            cursor: pointer;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .tab-btn::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--primary);
+            transform: scaleX(0);
+            transition: var(--transition);
+        }
+
+        .tab-btn:hover {
+            color: var(--primary);
+        }
+
+        .tab-btn.active {
+            color: var(--primary);
+        }
+
+        .tab-btn.active::after {
+            transform: scaleX(1);
+        }
+
+        .tabs-content {
+            padding: 2rem;
+        }
+
+        .tab-panel {
+            display: none;
+        }
+
+        .tab-panel.active {
+            display: block;
+        }
+
+        /* پنل مشخصات */
+        .specifications {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .spec-group {
+            background: var(--secondary);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+        }
+
+        .spec-group h4 {
+            margin-bottom: 1rem;
+            color: var(--primary);
+            font-size: 1.1rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.5rem;
+        }
+
+        .spec-list {
+            display: grid;
+            gap: 0.75rem;
+        }
+
+        .spec-item {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .spec-name {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        .spec-value {
+            color: var(--text);
+            font-weight: 500;
+        }
+
+        /* پنل نظرات */
+        .reviews-section {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .reviews-summary {
+            display: flex;
+            gap: 2rem;
+            padding: 2rem;
+            background: var(--subtle-gradient);
+            border-radius: var(--radius);
+        }
+
+        .rating-average {
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .average-score {
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--text);
+        }
+
+        .rating-details {
+            flex: 1;
+        }
+
+        .rating-bars {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .rating-bar {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .rating-label {
+            width: 70px;
+            display: flex;
+            gap: 2px;
+        }
+
+        .rating-label i {
+            color: #F59E0B;
+            font-size: 0.9rem;
+        }
+
+        .rating-progress {
+            flex: 1;
+            height: 8px;
+            background: var(--border);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .rating-fill {
+            height: 100%;
+            background: var(--primary);
+        }
+
+        .rating-count {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            width: 50px;
+            text-align: left;
+        }
+
+        .add-review-btn {
+            margin-top: 1.5rem;
+            padding: 0.75rem 1.5rem;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: var(--radius);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .add-review-btn:hover {
+            background: var(--primary-hover);
+            transform: translateY(-2px);
+        }
+
+        .reviews-filter {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .filter-label {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        .filter-options {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .filter-option {
+            padding: 0.5rem 1rem;
+            background: var(--secondary);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .filter-option:hover,
+        .filter-option.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .filter-select {
+            padding: 0.5rem;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            font-family: inherit;
+        }
+
+        .review-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .review-item {
+            padding: 1.5rem;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            background: var(--surface);
+        }
+
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+        }
+
+        .review-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .review-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .author-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .author-name {
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .review-date {
+            font-size: 0.875rem;
+            color: var(--text-light);
+        }
+
+        .review-rating {
+            display: flex;
+            gap: 2px;
+        }
+
+        .review-rating i {
+            color: #F59E0B;
+        }
+
+        .review-content {
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        .review-photos {
+            display: flex;
+            gap: 0.75rem;
+            margin-top: 1rem;
+        }
+
+        .review-photo {
+            width: 80px;
+            height: 80px;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .review-photo:hover {
+            transform: scale(1.05);
+        }
+
+        .review-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .review-helpful {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .helpful-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: var(--secondary);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 0.875rem;
+        }
+
+        .helpful-btn:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .helpful-btn i {
+            font-size: 1rem;
+        }
+
+        .review-reply {
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .review-reply:hover {
+            text-decoration: underline;
+        }
+
+        .load-more {
+            margin-top: 2rem;
+            padding: 1rem 2rem;
+            background: var(--secondary);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            color: var(--text);
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .load-more:hover {
+            background: var(--border-dark);
+            transform: translateY(-2px);
+        }
+
+        /* پنل سوالات متداول */
+        .faq-section {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .faq-item {
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            background: var(--surface);
+            overflow: hidden;
+        }
+
+        .faq-header {
+            padding: 1.25rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .faq-header:hover {
+            background: var(--subtle-gradient);
+        }
+
+        .faq-question {
+            font-weight: 600;
+            color: var(--text);
+            padding-right: 1.5rem;
+            position: relative;
+        }
+
+        .faq-question::before {
+            content: 'س';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 24px;
+            height: 24px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
+
+        .faq-toggle {
+            color: var(--text-light);
+            transition: var(--transition);
+            transform: rotate(0);
+        }
+
+        .faq-item.active .faq-toggle {
+            transform: rotate(180deg);
+        }
+
+        .faq-body {
+            padding: 0 1.25rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-in-out;
+            position: relative;
+        }
+
+        .faq-answer {
+            padding: 0 0 1.25rem 0;
+            color: var(--text-light);
+            line-height: 1.8;
+            position: relative;
+            padding-right: 1.5rem;
+        }
+
+        .faq-answer::before {
+            content: 'ج';
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 24px;
+            height: 24px;
+            background: var(--accent);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
+
+        .faq-item.active .faq-body {
+            max-height: 300px;
+        }
+
+        /* محصولات مشابه */
+        .related-products {
+            margin-top: 2rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .section-title::before {
+            content: '';
+            width: 30px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .product-card-simple {
+            background: var(--surface);
+            border-radius: var(--radius);
+            overflow: hidden;
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+            position: relative;
+        }
+
+        .product-card-simple:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow);
+        }
+
+        .product-image {
+            position: relative;
+            aspect-ratio: 1;
+            overflow: hidden;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .product-card-simple:hover .product-image img {
+            transform: scale(1.1);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: var(--accent);
+            color: white;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .product-actions {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            opacity: 0;
+            transform: translateX(-10px);
+            transition: var(--transition);
+        }
+
+        .product-card-simple:hover .product-actions {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .product-action {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: white;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text);
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .product-action:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .product-details {
+            padding: 1.25rem;
+        }
+
+        .product-title-simple {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .product-title-simple a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        .product-title-simple a:hover {
+            color: var(--primary);
+        }
+
+        .product-price {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .current-price-simple {
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .old-price-simple {
+            text-decoration: line-through;
+            color: var(--text-light);
+            font-size: 0.875rem;
+        }
+
+        .product-rating-simple {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .rating-stars {
+            display: flex;
+            gap: 2px;
+        }
+
+        .rating-stars i {
+            color: #F59E0B;
+            font-size: 0.875rem;
+        }
+
+        .rating-count-simple {
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+
+        /* نوتیفیکیشن */
+        .notification {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            padding: 1rem 1.5rem;
+            border-radius: var(--radius);
+            background: white;
+            box-shadow: var(--shadow);
+            display: none;
+            animation: fadeIn 0.3s ease;
+            z-index: 1200;
+            transform-origin: top right;
+        }
+
+        .notification.success {
+            background: #5D3FD3;
+            color: white;
+            border-right: 5px solid #4A3AAA;
+        }
+
+        .notification.error {
+            background: #FF4E50;
+            color: white;
+            border-right: 5px solid #DD383A;
+        }
+
+        /* انیمیشن‌ها */
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9) translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        /* واکنش‌گرایی */
+        @media (max-width: 1024px) {
+            .container {
+                padding: 0 1rem;
+            }
+            
+            .product-grid {
+                gap: 2rem;
+                padding: 2rem;
+            }
+
+            .specifications {
+                grid-template-columns: 1fr;
+            }
+
+            .reviews-summary {
+                flex-direction: column;
+                gap: 1.5rem;
+                padding: 1.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .product-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .product-title {
+                font-size: 1.75rem;
+            }
+            
+            .current-price {
+                font-size: 1.5rem;
+            }
+            
+            .cart-content {
+                width: 100%;
+                max-width: 420px;
+            }
+
+            .tabs-header {
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+
+            .tab-btn {
+                padding: 1rem 1.5rem;
+                font-size: 1rem;
+            }
+
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                margin: 1rem auto;
+                padding: 0 0.75rem;
+            }
+            
+            .product-card {
+                border-radius: var(--radius);
+            }
+            
+            .product-grid {
+                padding: 1.5rem;
+                gap: 1.5rem;
+            }
+            
+            .product-title {
+                font-size: 1.5rem;
+            }
+            
+            .price-section {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+            
+            .size-options {
+                justify-content: flex-start;
+            }
+            
+            .quantity-selector {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.75rem;
+            }
+            
+            .discount-code {
+                flex-direction: column;
+            }
+            
+            .discount-code button {
+                width: 100%;
+            }
+            
+            .floating-cart {
+                bottom: 1.5rem;
+                left: 1.5rem;
+            }
+            
+            .cart-toggle {
+                width: 55px;
+                height: 55px;
+            }
+
+            .tabs-content {
+                padding: 1.5rem 1rem;
+            }
+
+            .review-header {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .review-footer {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+
+            .share-options {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* اسکرول‌بار سفارشی */
+        .cart-body::-webkit-scrollbar,
+        .size-guide-content::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .cart-body::-webkit-scrollbar-track,
+        .size-guide-content::-webkit-scrollbar-track {
+            background: var(--secondary);
+            border-radius: 4px;
+        }
+
+        .cart-body::-webkit-scrollbar-thumb,
+        .size-guide-content::-webkit-scrollbar-thumb {
+            background: rgba(93, 63, 211, 0.3);
+            border-radius: 4px;
+        }
+
+        .cart-body::-webkit-scrollbar-thumb:hover,
+        .size-guide-content::-webkit-scrollbar-thumb:hover {
+            background: rgba(93, 63, 211, 0.5);
+        }
+        /* ریسپانسیو برای تمام دستگاه‌ها */
+        @media (max-width: 1366px) {
+            .container {
+                max-width: 1200px;
+            }
+        }
+        
+        @media (max-width: 1200px) {
+            .container {
+                max-width: 992px;
+                padding: 0 20px;
+            }
+            
+            .product-gallery {
+                width: 45%;
+            }
+            
+            .product-details {
+                width: 55%;
+            }
+            
+            .related-products .product-card {
+                width: calc(25% - 20px);
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .container {
+                max-width: 768px;
+            }
+            
+            .product-container {
+                flex-direction: column;
+            }
+            
+            .product-gallery, 
+            .product-details {
+                width: 100%;
+            }
+            
+            .product-gallery {
+                margin-bottom: 30px;
+            }
+            
+            .related-products .product-card {
+                width: calc(33.333% - 20px);
+            }
+            
+            .product-tabs .tab {
+                padding: 12px 15px;
+                font-size: 14px;
+            }
+            
+            .review-form .form-group {
+                width: 100%;
+                margin-right: 0;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                max-width: 576px;
+            }
+            
+            .header-top {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .header-menu {
+                display: none;
+            }
+            
+            .mobile-menu-toggle {
+                display: block;
+            }
+            
+            .product-info-list li {
+                width: 100%;
+            }
+            
+            .color-options .color-option {
+                width: 30px;
+                height: 30px;
+            }
+            
+            .size-options .size-option {
+                width: 40px;
+                height: 40px;
+                margin-right: 8px;
+                font-size: 12px;
+            }
+            
+            .quantity-selector {
+                width: 120px;
+            }
+            
+            .related-products .product-card {
+                width: calc(50% - 15px);
+                margin-bottom: 20px;
+            }
+            
+            .product-tabs {
+                flex-direction: column;
+                border-bottom: none;
+            }
+            
+            .product-tabs .tab {
+                margin-bottom: 5px;
+                border: 1px solid #eee;
+                border-radius: 5px;
+                text-align: center;
+            }
+            
+            .reviews-container .review {
+                padding: 15px;
+            }
+            
+            .footer {
+                padding: 40px 0;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .footer-bottom {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .container {
+                padding: 0 15px;
+            }
+            
+            .header-actions {
+                gap: 15px;
+            }
+            
+            .breadcrumbs {
+                margin-bottom: 15px;
+                font-size: 12px;
+            }
+            
+            .product-title {
+                font-size: 24px;
+            }
+            
+            .product-price {
+                font-size: 22px;
+            }
+            
+            .product-price .discount-badge {
+                padding: 3px 6px;
+                font-size: 12px;
+            }
+            
+            .product-actions {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .add-to-cart-btn, 
+            .buy-now-btn {
+                width: 100%;
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+            
+            .share-buttons {
+                justify-content: center;
+                margin-top: 20px;
+            }
+            
+            .related-products .section-title {
+                font-size: 20px;
+            }
+            
+            .related-products .product-card {
+                width: 100%;
+            }
+            
+            .tab-content {
+                padding: 15px;
+            }
+            
+            .specifications-table th, 
+            .specifications-table td {
+                padding: 8px;
+                font-size: 13px;
+            }
+            
+            .review-form {
+                padding: 15px;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* اضافه کردن منوی موبایل */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 80%;
+            max-width: 320px;
+            height: 100%;
+            background-color: white;
+            z-index: 1000;
+            padding: 20px;
+            box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .mobile-menu.active {
+            transform: translateX(0);
+            display: block;
+        }
+        
+        .mobile-menu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .mobile-menu-close {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        .mobile-menu ul {
+            padding: 0;
+            list-style: none;
+        }
+        
+        .mobile-menu li {
+            margin-bottom: 15px;
+        }
+        
+        .mobile-menu a {
+            color: #333;
+            text-decoration: none;
+            font-size: 16px;
+            display: block;
+            padding: 8px 0;
+        }
+        
+        .mobile-menu-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 999;
+        }
+        
+        .mobile-menu-overlay.active {
+            display: block;
+        }
+        
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- سبد خرید شناور -->
+    <div class="floating-cart">
+        <button id="cart-button" class="cart-toggle">
+            <i class="fas fa-shopping-cart"></i>
+            <span id="cart-count">0</span>
+        </button>
+    </div>
+
+    <!-- مدال سبد خرید -->
+    <div id="cart-modal" class="cart-modal">
+        <div class="cart-content">
+            <div class="cart-header">
+                <h2><i class="fas fa-shopping-cart"></i> سبد خرید</h2>
+                <button class="close-cart"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="cart-body">
+                <div class="cart-items">
+                    <!-- محتوای سبد خرید به صورت پویا اضافه می‌شود -->
+                </div>
+                <div class="cart-summary">
+                    <div class="summary-item">
+                        <span>تعداد کل:</span>
+                        <span id="total-items">0</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>مجموع:</span>
+                        <span id="subtotal">0 تومان</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>تخفیف:</span>
+                        <span id="discount">0 تومان</span>
+                    </div>
+                    <div class="summary-item total">
+                        <span>قابل پرداخت:</span>
+                        <span id="total-price">0 تومان</span>
+                    </div>
+                </div>
+            </div>
+            <div class="cart-footer">
+                <div class="discount-code">
+                    <input type="text" id="discount-code" placeholder="کد تخفیف">
+                    <button id="apply-discount">اعمال</button>
+                </div>
+                <a href="AIR1.html" id="checkout-btn" class="checkout-btn no-underline">
+                    <i class="fas fa-credit-card"></i>
+                    تکمیل خرید
+                </a>
+                <button id="clear-cart" class="clear-cart-btn">
+                    <i class="fas fa-trash-alt"></i>
+                    خالی کردن سبد
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- محتوای اصلی -->
+    <main class="container">
+        <!-- نوار مسیر -->
+        <nav class="product-nav">
+            <div class="breadcrumb">
+                <a href="index.html">صفحه اصلی</a>
+                <i class="fas fa-chevron-left"></i>
+                <a href="محصولات.html">محصولات</a>
+                <i class="fas fa-chevron-left"></i>
+                <!-- <a href="#">کفش ورزشی</a> -->
+                <!-- <i class="fas fa-chevron-left"></i> -->
+                <span>نایک ایرفورس</span>
+            </div>
+        </nav>
+
+        <!-- کارت محصول -->
+        <div class="product-card">
+            <div class="product-grid">
+                <!-- گالری محصول -->
+                <div class="product-gallery">
+                    <div class="main-image-container" id="mainImageContainer">
+                        <span class="view-360-badge">
+                            <i class="fas fa-sync"></i>
+                            نمای 360 درجه
+                        </span>
+                        <img src="AIR5.jpg" alt="کفش ایرفورس" class="main-image" id="mainImage">
+                        <div class="image-overlay">
+                            <button class="zoom-button" id="zoomButton">
+                                <i class="fas fa-search-plus"></i>
+                            </button>
+                        </div>
+                        <div class="gallery-controls">
+                            <button class="gallery-control" id="prevImage">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                            <button class="gallery-control" id="nextImage">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="thumbnails">
+                        <img src="AIR1.jpg" alt="نمای جلو" class="thumbnail active" onclick="changeImage(this, 0)">
+                        <img src="AIR2.jpg" alt="نمای پشت" class="thumbnail" onclick="changeImage(this, 1)">
+                        <img src="AIR3.jpg" alt="نمای کنار" class="thumbnail" onclick="changeImage(this, 2)">
+                        <img src="AIR4.jpg" alt="نمای بالا" class="thumbnail" onclick="changeImage(this, 3)">
+                    </div>
+                </div>
+
+                <!-- اطلاعات محصول -->
+                <div class="product-info">
+                    <div class="product-header">
+                        <div class="product-badges">
+                            <span class="product-badge badge-new">جدید</span>
+                            <span class="product-badge badge-bestseller">پرفروش</span>
+                        </div>
+                        <span class="product-category">کفش ورزشی</span>
+                        <h1 class="product-title">کفش نایک ایرفورس</h1>
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span class="reviews-count">
+                                4.5 (24 <a href="#reviews">نظر</a>)
+                            </span>
+                        </div>
+                        <div class="price-section">
+                            <span class="current-price">2,200,000 تومان</span>
+                            <span class="old-price">2,600,000 تومان</span>
+                            <span class="discount-badge">15% تخفیف</span>
+                        </div>
+                        <div class="product-availability">
+                            <i class="fas fa-check-circle" style="color: var(--success)"></i>
+                            <span class="in-stock">موجود در انبار</span>
+                            <span>(فقط 5 عدد باقی مانده)</span>
+                        </div>
+                    </div>
+
+                    <p class="product-description">
+                        کفش نایک ایرفورس با طراحی منحصر به فرد و کیفیت بالا، مناسب برای ورزش و استفاده روزمره. 
+                        این کفش دارای تکنولوژی پیشرفته برای راحتی بیشتر پا و دوام طولانی مدت می‌باشد. رویه از چرم با کیفیت و زیره از لاستیک مقاوم ساخته شده که استحکام بالایی را تضمین می‌کند.
+                    </p>
+
+                    <div class="options-section">
+                        <h3>
+                            انتخاب رنگ
+                        </h3>
+                        <div class="color-options">
+                            <div class="color-option color-white selected"></div>
+                            <div class="color-option color-black"></div>
+                            <div class="color-option color-red"></div>
+                            <div class="color-option color-blue"></div>
+                        </div>
+
+                        <h3>
+                            انتخاب سایز
+                            <button class="size-help" id="openSizeGuide">
+                                <i class="fas fa-ruler"></i>
+                                راهنمای سایز
+                            </button>
+                        </h3>
+                        <div class="size-options">
+                            <button class="size-option">39</button>
+                            <button class="size-option">40</button>
+                            <button class="size-option">41</button>
+                            <button class="size-option">42</button>
+                            <button class="size-option unavailable">43</button>
+                            <button class="size-option">44</button>
+                        </div>
+
+                        <div class="quantity-selector">
+                            <span>تعداد:</span>
+                            <div class="quantity-controls">
+                                <button class="quantity-btn decrease"><i class="fas fa-minus"></i></button>
+                                <span class="quantity-display">1</span>
+                                <button class="quantity-btn increase"><i class="fas fa-plus"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="features-list">
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>گارانتی اصالت و سلامت فیزیکی کالا</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-truck"></i>
+                            <span>ارسال سریع به سراسر کشور</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-undo-alt"></i>
+                            <span>7 روز ضمانت بازگشت کالا</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-headset"></i>
+                            <span>پشتیبانی 24 ساعته</span>
+                        </div>
+                    </div>
+
+                    <div class="action-buttons">
+                        <button class="add-to-cart">
+                            <i class="fas fa-shopping-cart"></i>
+                            افزودن به سبد خرید
+                        </button>
+                        <button class="action-btn" id="favoriteBtn" title="افزودن به علاقه‌مندی‌ها">
+                            <i class="far fa-heart"></i>
+                        </button>
+                        <button class="action-btn" id="compareBtn" title="افزودن به مقایسه">
+                            <i class="fas fa-exchange-alt"></i>
+                        </button>
+                        <button class="action-btn" id="shareBtn" title="اشتراک‌گذاری">
+                            <i class="fas fa-share-alt"></i>
+                        </button>
+                    </div>
+
+                    <!-- شبکه‌های اجتماعی -->
+                    <div class="social-media">
+                        <h3>خرید از طریق واتساپ و تلگرام</h3>
+                        <div class="social-links">
+                            <a href="https://t.me/MMDW_2" class="social-link telegram">
+                                <i class="fab fa-telegram-plane"></i>
+                                <span>Telegram</span>
+                            </a>
+                            <a href="https://wa.me/+9809900859556" class="social-link whatsapp">
+                                <i class="fab fa-whatsapp"></i>
+                                <span>WhatsApp</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- تب‌های محصول -->
+        <div class="product-tabs">
+            <div class="tabs-header">
+                <button class="tab-btn active" data-tab="description">توضیحات محصول</button>
+                <button class="tab-btn" data-tab="specifications">مشخصات فنی</button>
+                <button class="tab-btn" data-tab="reviews" id="reviewsTab">نظرات کاربران</button>
+                <button class="tab-btn" data-tab="faq">سوالات متداول</button>
+            </div>
+            <div class="tabs-content">
+                <div class="tab-panel active" id="description">
+                    <p>کفش نایک ایرفورس 1 یکی از محبوب‌ترین کفش‌های اسپرت در دنیاست که از سال 1982 تاکنون همچنان طرفداران بسیاری دارد. این کفش با طراحی کلاسیک و زیبا، گزینه‌ای مناسب برای استفاده روزمره، ورزش و استایل خیابانی است.</p>
+                    <br>
+                    <p>ویژگی‌های برجسته:</p>
+                    <ul style="padding-right: 20px; margin: 10px 0;">
+                        <li>رویه از جنس چرم با کیفیت</li>
+                        <li>پدهای هوا در قسمت کف کفش برای راحتی بیشتر</li>
+                        <li>زیره لاستیکی با دوام و مقاوم در برابر سایش</li>
+                        <li>طراحی کلاسیک و همیشه مد</li>
+                        <li>پنجه گرد برای راحتی بیشتر پا</li>
+                        <li>پد داخلی نرم برای راحتی بیشتر</li>
+                    </ul>
+                    <br>
+                    <p>کفش نایک ایرفورس با پد هوا در قسمت پاشنه، راحتی فوق‌العاده‌ای را برای شما به ارمغان می‌آورد و با ظاهری شیک و کلاسیک، می‌تواند با هر استایلی ست شود. این کفش دارای رویه‌ای از جنس چرم با کیفیت بالا می‌باشد که باعث دوام و ماندگاری بیشتر آن می‌شود.</p>
+                    <br>
+                    <p>زیره لاستیکی با الگوی خاص، چسبندگی مناسبی را روی سطوح مختلف ایجاد می‌کند و سبب می‌شود تا به راحتی بتوانید در سطوح مختلف حرکت کنید. همچنین پد داخلی نرم و راحت، فشار وارده به پا را به حداقل می‌رساند و احساس راحتی بی‌نظیری را به شما منتقل می‌کند.</p>
+                </div>
+                <div class="tab-panel" id="specifications">
+                    <div class="specifications">
+                        <div class="spec-group">
+                            <h4>مشخصات کلی</h4>
+                            <div class="spec-list">
+                                <div class="spec-item">
+                                    <span class="spec-name">برند</span>
+                                    <span class="spec-value">Nike</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-name">مدل</span>
+                                    <span class="spec-value">Air Force 1</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-name">سری</span>
+                                    <span class="spec-value">کلاسیک</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-name">مناسب برای</span>
+                                    <span class="spec-value">استفاده روزمره، ورزش</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="spec-group">
+                            <h4>مشخصات فیزیکی</h4>
+                            <div class="spec-list">
+                                <div class="spec-item">
+                                    <span class="spec-name">جنس رویه</span>
+                                    <span class="spec-value">چرم طبیعی</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-name">جنس زیره</span>
+                                    <span class="spec-value">لاستیک فشرده</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-name">ارتفاع ساق</span>
+                                    <span class="spec-value">کوتاه</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-name">نوع پاشنه</span>
+                                    <span class="spec-value">تخت</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-name">نوع بستن</span>
+                                    <span class="spec-value">بندی</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="spec-group">
+                            <h4>ویژگی‌های خاص</h4>
+                            <div class="spec-list">
+                                <div class="spec-item">
+                                    <span class="spec-name">تکنولوژی</span>
+                                    <span class="spec-value">Air Cushion</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-name">مقاومت</span>
+                                    <span class="spec-value">ضد آب، ضد سایش</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-name">ویژگی‌های زیره</span>
+                                    <span class="spec-value">مقاوم در برابر سُر خوردن</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-name">کفی</span>
+                                    <span class="spec-value">قابل تعویض</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="spec-group">
+                            <h4>سایر مشخصات</h4>
+                            <div class="spec-list">
+                                <div class="spec-item">
+                                    <span class="spec-name">وزن تقریبی</span>
+                                    <span class="spec-value">350 گرم</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-name">کشور تولیدکننده</span>
+                                    <span class="spec-value">ویتنام</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-name">گارانتی</span>
+                                    <span class="spec-value">12 ماه</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-name">اقلام همراه</span>
+                                    <span class="spec-value">جعبه، کیسه محافظ، بند اضافه</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-panel" id="reviews">
+                    <div class="reviews-section">
+                        <div class="reviews-summary">
+                            <div class="rating-average">
+                                <span class="average-score">4.5</span>
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                                <span>از 24 نظر</span>
+                            </div>
+                            <div class="rating-details">
+                                <div class="rating-bars">
+                                    <div class="rating-bar">
+                                        <div class="rating-label">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <div class="rating-progress">
+                                            <div class="rating-fill" style="width: 60%"></div>
+                                        </div>
+                                        <span class="rating-count">15</span>
+                                    </div>
+                                    <div class="rating-bar">
+                                        <div class="rating-label">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <div class="rating-progress">
+                                            <div class="rating-fill" style="width: 25%"></div>
+                                        </div>
+                                        <span class="rating-count">6</span>
+                                    </div>
+                                    <div class="rating-bar">
+                                        <div class="rating-label">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <div class="rating-progress">
+                                            <div class="rating-fill" style="width: 8%"></div>
+                                        </div>
+                                        <span class="rating-count">2</span>
+                                    </div>
+                                    <div class="rating-bar">
+                                        <div class="rating-label">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <div class="rating-progress">
+                                            <div class="rating-fill" style="width: 4%"></div>
+                                        </div>
+                                        <span class="rating-count">1</span>
+                                    </div>
+                                    <div class="rating-bar">
+                                        <div class="rating-label">
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <div class="rating-progress">
+                                            <div class="rating-fill" style="width: 0%"></div>
+                                        </div>
+                                        <span class="rating-count">0</span>
+                                    </div>
+                                </div>
+                                <button class="add-review-btn" id="addReviewBtn">
+                                    <i class="fas fa-pen"></i>
+                                    ثبت نظر جدید
+                                </button>
+                            </div>
+                        </div>
+                        <div class="reviews-filter">
+                            <div class="filter-label">
+                                <span>فیلتر بر اساس:</span>
+                            </div>
+                            <div class="filter-options">
+                                <button class="filter-option active">همه نظرات</button>
+                                <button class="filter-option">نظرات مثبت</button>
+                                <button class="filter-option">نظرات منفی</button>
+                                <button class="filter-option">عکس‌دار</button>
+                            </div>
+                            <select class="filter-select">
+                                <option value="newest">جدیدترین</option>
+                                <option value="oldest">قدیمی‌ترین</option>
+                                <option value="rating_high">بالاترین امتیاز</option>
+                                <option value="rating_low">کمترین امتیاز</option>
+                            </select>
+                        </div>
+                        <div class="review-list">
+                            <div class="review-item">
+                                <div class="review-header">
+                                    <div class="review-author">
+                                        <div class="review-avatar">ع</div>
+                                        <div class="author-info">
+                                            <div class="author-name">علی محمدی</div>
+                                            <div class="review-date">6 روز پیش</div>
+                                        </div>
+                                    </div>
+                                    <div class="review-rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                                <div class="review-content">
+                                    <p>کفش بسیار با کیفیتی هست، هم از نظر زیبایی و هم دوام. درست همون چیزی که در مورد ایرفورس وان انتظار داشتم. کیفیت رویه چرم عالیه و زیره هم خیلی خوبه.کفش بسیار راحته و اندازه استاندارد داره، به نظرم از خریدش راضی بودم.</p>
+                                </div>
+                                <div class="review-photos">
+                                    <img src="AIR1.jpg" alt="عکس نظر" class="review-photo">
+                                    <img src="AIR3.jpg" alt="عکس نظر" class="review-photo">
+                                </div>
+                                <div class="review-footer">
+                                    <div class="review-helpful">
+                                        <span>آیا این نظر مفید بود؟</span>
+                                        <button class="helpful-btn">
+                                            <i class="fas fa-thumbs-up"></i>
+                                            بله (12)
+                                        </button>
+                                        <button class="helpful-btn">
+                                            <i class="fas fa-thumbs-down"></i>
+                                            خیر (2)
+                                        </button>
+                                    </div>
+                                    <a href="#" class="review-reply">پاسخ</a>
+                                </div>
+                            </div>
+                            <div class="review-item">
+                                <div class="review-header">
+                                    <div class="review-author">
+                                        <div class="review-avatar">س</div>
+                                        <div class="author-info">
+                                            <div class="author-name">سارا رضایی</div>
+                                            <div class="review-date">2 هفته پیش</div>
+                                        </div>
+                                    </div>
+                                    <div class="review-rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                    </div>
+                                </div>
+                                <div class="review-content">
+                                    <p>طراحی کفش عالیه و خیلی شیکه. نسبت به قیمتش کیفیت خوبی داره ولی به نظرم کمی سنگینه. بعد از چند ساعت استفاده مداوم پاهام خسته می‌شد. در کل از خریدم راضیم و پیشنهاد می‌کنم.</p>
+                                </div>
+                                <div class="review-footer">
+                                    <div class="review-helpful">
+                                        <span>آیا این نظر مفید بود؟</span>
+                                        <button class="helpful-btn">
+                                            <i class="fas fa-thumbs-up"></i>
+                                            بله (8)
+                                        </button>
+                                        <button class="helpful-btn">
+                                            <i class="fas fa-thumbs-down"></i>
+                                            خیر (1)
+                                        </button>
+                                    </div>
+                                    <a href="#" class="review-reply">پاسخ</a>
+                                </div>
+                            </div>
+                            <div class="review-item">
+                                <div class="review-header">
+                                    <div class="review-author">
+                                        <div class="review-avatar">م</div>
+                                        <div class="author-info">
+                                            <div class="author-name">محمد حسینی</div>
+                                            <div class="review-date">1 ماه پیش</div>
+                                        </div>
+                                    </div>
+                                    <div class="review-rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                    </div>
+                                </div>
+                                <div class="review-content">
+                                    <p>کیفیت دوخت و ساخت خوبه ولی با توجه به برند نایک انتظار بیشتری داشتم. سایزش هم یکم بزرگتر از حد معمول بود. بهتره یک سایز کوچکتر از سایز معمول خودتون سفارش بدید. در کل کفش بدی نیست ولی قیمتش نسبت به کیفیتش زیاده.</p>
+                                </div>
+                                <div class="review-footer">
+                                    <div class="review-helpful">
+                                        <span>آیا این نظر مفید بود؟</span>
+                                        <button class="helpful-btn">
+                                            <i class="fas fa-thumbs-up"></i>
+                                            بله (5)
+                                        </button>
+                                        <button class="helpful-btn">
+                                            <i class="fas fa-thumbs-down"></i>
+                                            خیر (3)
+                                        </button>
+                                    </div>
+                                    <a href="#" class="review-reply">پاسخ</a>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="load-more">
+                            <i class="fas fa-spinner"></i>
+                            نمایش نظرات بیشتر
+                        </button>
+                    </div>
+                </div>
+                <div class="tab-panel" id="faq">
+                    <div class="faq-section">
+                        <div class="faq-item active">
+                            <div class="faq-header">
+                                <div class="faq-question">آیا این کفش برای دویدن مناسب است؟</div>
+                                <i class="fas fa-chevron-down faq-toggle"></i>
+                            </div>
+                            <div class="faq-body" style="max-height: 300px;">
+                                <div class="faq-answer">
+                                    کفش نایک ایرفورس 1 اصولاً یک کفش لایف‌استایل است و برای دویدن‌های طولانی و حرفه‌ای طراحی نشده است. برای دویدن‌های کوتاه و تفریحی مشکلی ندارد، اما اگر قصد دارید به طور منظم بدوید، بهتر است از کفش‌های مخصوص دویدن استفاده کنید که ساختار مناسب‌تری برای این فعالیت دارند.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-header">
+                                <div class="faq-question">روش نگهداری از این کفش چگونه است؟</div>
+                                <i class="fas fa-chevron-down faq-toggle"></i>
+                            </div>
+                            <div class="faq-body">
+                                <div class="faq-answer">
+                                    برای نگهداری از کفش نایک ایرفورس 1، بهتر است از آن در فعالیت‌های سنگین استفاده نکنید. برای تمیز کردن آن می‌توانید از یک برس نرم و مایع شوینده ملایم استفاده کنید. از قرار دادن کفش در برابر نور مستقیم خورشید یا منابع حرارتی خودداری کنید. همچنین توصیه می‌شود بعد از استفاده، کفش را در محیطی خشک و با تهویه مناسب قرار دهید تا خشک شود.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-header">
+                                <div class="faq-question">آیا این کفش ضد آب است؟</div>
+                                <i class="fas fa-chevron-down faq-toggle"></i>
+                            </div>
+                            <div class="faq-body">
+                                <div class="faq-answer">
+                                    کفش نایک ایرفورس 1 به طور کامل ضد آب نیست، اما رویه چرمی آن تا حدودی در برابر رطوبت و بارش‌های سبک مقاوم است. با این حال، برای محافظت بیشتر، می‌توانید از اسپری‌های محافظ مخصوص چرم استفاده کنید که تا حدودی خاصیت ضد آب به آن می‌دهد. توصیه می‌شود در روزهای بارانی شدید از این کفش استفاده نکنید.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-header">
+                                <div class="faq-question">آیا این کفش برای افراد با کف پای صاف مناسب است؟</div>
+                                <i class="fas fa-chevron-down faq-toggle"></i>
+                            </div>
+                            <div class="faq-body">
+                                <div class="faq-answer">
+                                    کفش نایک ایرفورس 1 دارای کفی نسبتاً صاف با پشتیبانی متوسط است. برای افراد با کف پای صاف خفیف تا متوسط می‌تواند مناسب باشد، اما اگر مشکل شدید کف پای صاف دارید، ممکن است نیاز به کفی طبی اضافی داشته باشید. در هر صورت، بهتر است قبل از خرید با پزشک متخصص مشورت کنید.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-header">
+                                <div class="faq-question">آیا می‌توان این کفش را در ماشین لباسشویی شست؟</div>
+                                <i class="fas fa-chevron-down faq-toggle"></i>
+                            </div>
+                            <div class="faq-body">
+                                <div class="faq-answer">
+                                    به هیچ وجه توصیه نمی‌شود کفش نایک ایرفورس 1 را در ماشین لباسشویی بشویید. این کار می‌تواند به چرم، چسب و سایر قسمت‌های کفش آسیب برساند. بهترین روش، شستشوی دستی با استفاده از یک پارچه نرم و مایع شوینده ملایم است. پس از تمیز کردن، اجازه دهید کفش در دمای اتاق و به دور از نور مستقیم خورشید خشک شود.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- محصولات مشابه -->
+        <div class="related-products">
+            <h2 class="section-title">محصولات مشابه</h2>
+            <div class="products-grid">
+                <div class="product-card-simple">
+                    <div class="product-image">
+                        <img src="AIR2.jpg" alt="کفش نایک ایر مکس">
+                        <span class="product-badge">15% تخفیف</span>
+                        <div class="product-actions">
+                            <button class="product-action" title="افزودن به علاقه‌مندی‌ها">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="product-action" title="مشاهده سریع">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                            <button class="product-action" title="افزودن به مقایسه">
+                                <i class="fas fa-exchange-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-title-simple">
+                            <a href="#">کفش نایک ایر مکس</a>
+                        </h3>
+                        <div class="product-price">
+                            <span class="current-price-simple">3,200,000 تومان</span>
+                            <span class="old-price-simple">3,800,000 تومان</span>
+                        </div>
+                        <div class="product-rating-simple">
+                            <div class="rating-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <span class="rating-count-simple">(18)</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card-simple">
+                    <div class="product-image">
+                        <img src="AIR3.jpg" alt="کفش آدیداس استن اسمیت">
+                        <div class="product-actions">
+                            <button class="product-action" title="افزودن به علاقه‌مندی‌ها">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="product-action" title="مشاهده سریع">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                            <button class="product-action" title="افزودن به مقایسه">
+                                <i class="fas fa-exchange-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-title-simple">
+                            <a href="#">کفش آدیداس استن اسمیت</a>
+                        </h3>
+                        <div class="product-price">
+                            <span class="current-price-simple">2,800,000 تومان</span>
+                        </div>
+                        <div class="product-rating-simple">
+                            <div class="rating-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span class="rating-count-simple">(32)</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card-simple">
+                    <div class="product-image">
+                        <img src="AIR4.jpg" alt="کفش نایک جردن">
+                        <span class="product-badge">جدید</span>
+                        <div class="product-actions">
+                            <button class="product-action" title="افزودن به علاقه‌مندی‌ها">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="product-action" title="مشاهده سریع">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                            <button class="product-action" title="افزودن به مقایسه">
+                                <i class="fas fa-exchange-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-title-simple">
+                            <a href="#">کفش نایک جردن</a>
+                        </h3>
+                        <div class="product-price">
+                            <span class="current-price-simple">3,500,000 تومان</span>
+                        </div>
+                        <div class="product-rating-simple">
+                            <div class="rating-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="rating-count-simple">(27)</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card-simple">
+                    <div class="product-image">
+                        <img src="AIR1.jpg" alt="کفش ریبوک کلاسیک">
+                        <span class="product-badge">20% تخفیف</span>
+                        <div class="product-actions">
+                            <button class="product-action" title="افزودن به علاقه‌مندی‌ها">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="product-action" title="مشاهده سریع">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                            <button class="product-action" title="افزودن به مقایسه">
+                                <i class="fas fa-exchange-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-title-simple">
+                            <a href="#">کفش ریبوک کلاسیک</a>
+                        </h3>
+                        <div class="product-price">
+                            <span class="current-price-simple">1,900,000 تومان</span>
+                            <span class="old-price-simple">2,400,000 تومان</span>
+                        </div>
+                        <div class="product-rating-simple">
+                            <div class="rating-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <span class="rating-count-simple">(14)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- مدال بزرگنمایی تصویر -->
+    <div id="zoom-modal" class="zoom-modal">
+        <div class="zoom-content">
+            <button class="close-zoom"><i class="fas fa-times"></i></button>
+            <img id="zoomImage" src="" alt="تصویر بزرگنمایی شده">
+            <div class="zoom-thumbnails">
+                <img src="AIR1.jpg" alt="نمای جلو" class="zoom-thumbnail active" onclick="changeZoomImage(this, 0)">
+                <img src="AIR2.jpg" alt="نمای پشت" class="zoom-thumbnail" onclick="changeZoomImage(this, 1)">
+                <img src="AIR3.jpg" alt="نمای کنار" class="zoom-thumbnail" onclick="changeZoomImage(this, 2)">
+                <img src="AIR4.jpg" alt="نمای بالا" class="zoom-thumbnail" onclick="changeZoomImage(this, 3)">
+            </div>
+            <div class="zoom-arrows">
+                <button class="zoom-arrow" id="prevZoomImage">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                <button class="zoom-arrow" id="nextZoomImage">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- مدال راهنمای سایز -->
+    <div id="size-guide-modal" class="size-guide-modal">
+        <div class="size-guide-content">
+            <button class="close-size-guide"><i class="fas fa-times"></i></button>
+            <h3>راهنمای انتخاب سایز</h3>
+            <table class="size-guide-table">
+                <thead>
+                    <tr>
+                        <th>اندازه ایران</th>
+                        <th>اندازه اروپا</th>
+                        <th>اندازه آمریکا</th>
+                        <th>طول پا (سانتی‌متر)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>38</td>
+                        <td>39</td>
+                        <td>6.5</td>
+                        <td>24.5</td>
+                    </tr>
+                    <tr>
+                        <td>39</td>
+                        <td>40</td>
+                        <td>7</td>
+                        <td>25</td>
+                    </tr>
+                    <tr>
+                        <td>40</td>
+                        <td>41</td>
+                        <td>8</td>
+                        <td>26</td>
+                    </tr>
+                    <tr>
+                        <td>41</td>
+                        <td>42</td>
+                        <td>8.5</td>
+                        <td>26.5</td>
+                    </tr>
+                    <tr>
+                        <td>42</td>
+                        <td>43</td>
+                        <td>9.5</td>
+                        <td>27.5</td>
+                    </tr>
+                    <tr>
+                        <td>43</td>
+                        <td>44</td>
+                        <td>10</td>
+                        <td>28</td>
+                    </tr>
+                    <tr>
+                        <td>44</td>
+                        <td>45</td>
+                        <td>11</td>
+                        <td>29</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="size-guide-tips">
+                <h4>نکات مهم برای انتخاب سایز مناسب:</h4>
+                <ul>
+                    <li>کفش‌های نایک معمولاً در سایز استاندارد تولید می‌شوند، اما هر مدل ممکن است کمی متفاوت باشد.</li>
+                    <li>اگر پای شما پهن است، بهتر است یک سایز بزرگتر انتخاب کنید.</li>
+                    <li>برای اندازه‌گیری دقیق، در حالی که ایستاده‌اید طول پای خود را اندازه بگیرید.</li>
+                    <li>اگر بین دو سایز مردد هستید، سایز بزرگتر را انتخاب کنید.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- مدال اشتراک‌گذاری -->
+    <div id="share-modal" class="share-modal">
+        <div class="share-content">
+            <button class="close-share"><i class="fas fa-times"></i></button>
+            <h3>اشتراک‌گذاری این محصول</h3>
+            <div class="share-options">
+                <a href="#" class="share-option share-whatsapp">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>واتس‌اپ</span>
+                </a>
+                <a href="#" class="share-option share-telegram">
+                    <i class="fab fa-telegram-plane"></i>
+                    <span>تلگرام</span>
+                </a>
+                <a href="#" class="share-option share-twitter">
+                    <i class="fab fa-twitter"></i>
+                    <span>توییتر</span>
+                </a>
+                <a href="#" class="share-option share-facebook">
+                    <i class="fab fa-facebook-f"></i>
+                    <span>فیسبوک</span>
+                </a>
+                <a href="#" class="share-option share-email">
+                    <i class="fas fa-envelope"></i>
+                    <span>ایمیل</span>
+                </a>
+                <a href="#" class="share-option share-link">
+                    <i class="fas fa-link"></i>
+                    <span>کپی لینک</span>
+                </a>
+            </div>
+            <div class="share-link-area">
+                <input type="text" class="share-url" value="https://amiristor.shop/products/nike-air-force-1" readonly>
+                <button class="copy-link">کپی</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- نوتیفیکیشن -->
+    <div id="notification" class="notification"></div>
+
+    <!-- اسکریپت‌ها -->
+    <script>
+        // کلاس سبد خرید
+        class ShoppingCart {
+            constructor() {
+                this.initializeElements();
+                this.loadCart();
+                this.bindEvents();
+                this.updateCartDisplay();
+            }
+
+            initializeElements() {
+                // سبد خرید
+                this.cartButton = document.getElementById('cart-button');
+                this.cartModal = document.getElementById('cart-modal');
+                this.cartItems = document.querySelector('.cart-items');
+                this.cartCount = document.getElementById('cart-count');
+                this.closeCartBtn = document.querySelector('.close-cart');
+                this.clearCartBtn = document.getElementById('clear-cart');
+                this.checkoutBtn = document.getElementById('checkout-btn');
+                this.totalItems = document.getElementById('total-items');
+                this.subtotalElement = document.getElementById('subtotal');
+                this.discountElement = document.getElementById('discount');
+                this.totalPriceElement = document.getElementById('total-price');
+                
+                // محصول
+                this.addToCartBtn = document.querySelector('.add-to-cart');
+                this.sizeOptions = document.querySelectorAll('.size-option:not(.unavailable)');
+                this.quantityBtns = document.querySelectorAll('.quantity-btn');
+                this.quantityDisplay = document.querySelector('.quantity-display');
+                this.colorOptions = document.querySelectorAll('.color-option');
+                
+                // نوتیفیکیشن
+                this.notification = document.getElementById('notification');
+            }
+
+            loadCart() {
+                this.cart = JSON.parse(localStorage.getItem('cart')) || [];
+            }
+
+            bindEvents() {
+                // سبد خرید
+                if (this.cartButton) {
+                    this.cartButton.addEventListener('click', () => this.toggleCart());
+                }
+                if (this.closeCartBtn) {
+                    this.closeCartBtn.addEventListener('click', () => this.hideCart());
+                }
+                if (this.clearCartBtn) {
+                    this.clearCartBtn.addEventListener('click', () => this.clearCart());
+                }
+                if (this.checkoutBtn) {
+                    this.checkoutBtn.addEventListener('click', () => this.checkout());
+                }
+
+                // افزودن به سبد
+                if (this.addToCartBtn) {
+                    this.addToCartBtn.addEventListener('click', () => this.addToCart());
+                }
+
+                // کنترل تعداد
+                if (this.quantityBtns) {
+                    this.quantityBtns.forEach(btn => {
+                        btn.addEventListener('click', () => {
+                            let quantity = parseInt(this.quantityDisplay.textContent);
+                            if (btn.classList.contains('decrease')) {
+                                quantity = Math.max(1, quantity - 1);
+                            } else {
+                                quantity = Math.min(10, quantity + 1);
+                            }
+                            this.quantityDisplay.textContent = quantity;
+                        });
+                    });
+                }
+
+                // انتخاب سایز
+                if (this.sizeOptions) {
+                    this.sizeOptions.forEach(option => {
+                        option.addEventListener('click', () => {
+                            this.sizeOptions.forEach(opt => opt.classList.remove('selected'));
+                            option.classList.add('selected');
+                        });
+                    });
+                }
+
+                // انتخاب رنگ
+                if (this.colorOptions) {
+                    this.colorOptions.forEach(option => {
+                        option.addEventListener('click', () => {
+                            this.colorOptions.forEach(opt => opt.classList.remove('selected'));
+                            option.classList.add('selected');
+                        });
+                    });
+                }
+
+                // بستن با کلید Escape
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape') this.hideCart();
+                });
+
+                // کلیک خارج از مدال
+                if (this.cartModal) {
+                    this.cartModal.addEventListener('click', (e) => {
+                        if (e.target === this.cartModal) this.hideCart();
+                    });
+                }
+
+                // دکمه علاقه‌مندی‌ها
+                const favoriteBtn = document.getElementById('favoriteBtn');
+                if (favoriteBtn) {
+                    favoriteBtn.addEventListener('click', () => {
+                        const isFavorite = favoriteBtn.classList.toggle('active');
+                        const heartIcon = favoriteBtn.querySelector('i');
+                        if (isFavorite) {
+                            heartIcon.classList.remove('far');
+                            heartIcon.classList.add('fas');
+                            this.showNotification('محصول به علاقه‌مندی‌ها اضافه شد', 'success');
+                        } else {
+                            heartIcon.classList.remove('fas');
+                            heartIcon.classList.add('far');
+                            this.showNotification('محصول از علاقه‌مندی‌ها حذف شد', 'success');
+                        }
+                    });
+                }
+
+                // دکمه مقایسه
+                const compareBtn = document.getElementById('compareBtn');
+                if (compareBtn) {
+                    compareBtn.addEventListener('click', () => {
+                        const isComparing = compareBtn.classList.toggle('active');
+                        if (isComparing) {
+                            this.showNotification('محصول به لیست مقایسه اضافه شد', 'success');
+                        } else {
+                            this.showNotification('محصول از لیست مقایسه حذف شد', 'success');
+                        }
+                    });
+                }
+            }
+
+            toggleCart() {
+                if (this.cartModal) {
+                    const isVisible = this.cartModal.style.display === 'flex';
+                    this.cartModal.style.display = isVisible ? 'none' : 'flex';
+                    document.body.style.overflow = isVisible ? '' : 'hidden';
+                }
+            }
+
+            hideCart() {
+                if (this.cartModal) {
+                    this.cartModal.style.display = 'none';
+                    document.body.style.overflow = '';
+                }
+            }
+
+            addToCart() {
+                const selectedSize = document.querySelector('.size-option.selected');
+                const selectedColor = document.querySelector('.color-option.selected');
+                
+                if (!selectedSize) {
+                    this.showNotification('لطفاً سایز را انتخاب کنید', 'error');
+                    return;
+                }
+
+                if (!selectedColor) {
+                    this.showNotification('لطفاً رنگ را انتخاب کنید', 'error');
+                    return;
+                }
+
+                const productTitle = document.querySelector('.product-title').textContent;
+                const productPrice = this.extractPrice(document.querySelector('.current-price').textContent);
+                const productImage = document.querySelector('.main-image').src;
+                const quantity = parseInt(this.quantityDisplay.textContent);
+                const size = selectedSize.textContent;
+                
+                // تعیین رنگ انتخاب شده
+                let color = "سفید";
+                if (selectedColor.classList.contains('color-black')) color = "مشکی";
+                if (selectedColor.classList.contains('color-red')) color = "قرمز";
+                if (selectedColor.classList.contains('color-blue')) color = "آبی";
+
+                const existingItemIndex = this.cart.findIndex(item => 
+                    item.title === productTitle && item.size === size && item.color === color
+                );
+
+                if (existingItemIndex > -1) {
+                    this.cart[existingItemIndex].quantity += quantity;
+                } else {
+                    const newItem = {
+                        id: Date.now(),
+                        title: productTitle,
+                        price: productPrice,
+                        image: productImage,
+                        size: size,
+                        color: color,
+                        quantity: quantity
+                    };
+                    this.cart.push(newItem);
+                }
+
+                this.saveCart();
+                this.updateCartDisplay();
+                this.showNotification('محصول به سبد خرید اضافه شد', 'success');
+            }
+
+            removeFromCart(id) {
+                this.cart = this.cart.filter(item => item.id !== id);
+                this.saveCart();
+                this.updateCartDisplay();
+                this.showNotification('محصول از سبد خرید حذف شد', 'success');
+            }
+
+            updateCartDisplay() {
+                if (!this.cartCount || !this.cartItems) return;
+
+                const totalItems = this.cart.reduce((sum, item) => sum + item.quantity, 0);
+                this.cartCount.textContent = totalItems;
+                if (this.totalItems) {
+                    this.totalItems.textContent = totalItems;
+                }
+
+                this.renderCartItems();
+                this.updateCartTotals();
+            }
+
+            renderCartItems() {
+                if (!this.cartItems) return;
+
+                if (this.cart.length === 0) {
+                    this.cartItems.innerHTML = `
+                        <div class="empty-cart">
+                            <i class="fas fa-shopping-basket"></i>
+                            <p>سبد خرید شما خالی است</p>
+                            <button onclick="window.location.href='محصولات.html'">مشاهده محصولات</button>
+                        </div>`;
+                    return;
+                }
+
+                this.cartItems.innerHTML = this.cart.map(item => `
+                    <div class="cart-item" data-id="${item.id}">
+                        <img src="${item.image}" alt="${item.title}">
+                        <div class="cart-item-details">
+                            <h3>${item.title}</h3>
+                            <p>سایز: ${item.size} | رنگ: ${item.color}</p>
+                            <div class="cart-item-quantity">
+                                <button onclick="cart.updateItemQuantity(${item.id}, 'decrease')"><i class="fas fa-minus"></i></button>
+                                <span>${item.quantity}</span>
+                                <button onclick="cart.updateItemQuantity(${item.id}, 'increase')"><i class="fas fa-plus"></i></button>
+                            </div>
+                            <p class="cart-item-price">${this.formatPrice(item.price * item.quantity)}</p>
+                        </div>
+                        <button class="remove-item" onclick="cart.removeFromCart(${item.id})">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                    </div>
+                `).join('');
+            }
+
+            updateItemQuantity(id, action) {
+                const itemIndex = this.cart.findIndex(item => item.id === id);
+                if (itemIndex === -1) return;
+
+                if (action === 'increase') {
+                    this.cart[itemIndex].quantity = Math.min(this.cart[itemIndex].quantity + 1, 10);
+                } else if (action === 'decrease') {
+                    if (this.cart[itemIndex].quantity > 1) {
+                        this.cart[itemIndex].quantity--;
+                    } else {
+                        this.removeFromCart(id);
+                        return;
+                    }
+                }
+
+                this.saveCart();
+                this.updateCartDisplay();
+            }
+
+            updateCartTotals() {
+                if (!this.subtotalElement || !this.discountElement || !this.totalPriceElement) return;
+
+                const subtotal = this.cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+                const discount = 0; // محاسبه تخفیف
+                const total = subtotal - discount;
+
+                this.subtotalElement.textContent = this.formatPrice(subtotal);
+                this.discountElement.textContent = this.formatPrice(discount);
+                this.totalPriceElement.textContent = this.formatPrice(total);
+            }
+
+            clearCart() {
+                if (confirm('آیا از خالی کردن سبد خرید مطمئن هستید؟')) {
+                    this.cart = [];
+                    this.saveCart();
+                    this.updateCartDisplay();
+                    this.showNotification('سبد خرید خالی شد', 'success');
+                }
+            }
+
+            checkout() {
+                if (this.cart.length === 0) {
+                    this.showNotification('سبد خرید خالی است', 'error');
+                    return;
+                }
+                // انتقال به صفحه پرداخت
+            }
+
+            showNotification(message, type = 'success') {
+                if (!this.notification) return;
+
+                this.notification.textContent = message;
+                this.notification.className = `notification ${type}`;
+                this.notification.style.display = 'block';
+
+                setTimeout(() => {
+                    this.notification.style.display = 'none';
+                }, 3000);
+            }
+
+            formatPrice(price) {
+                return price.toLocaleString('fa-IR') + ' تومان';
+            }
+
+            extractPrice(priceString) {
+                return parseInt(priceString.replace(/[^\d]/g, ''));
+            }
+
+            saveCart() {
+                localStorage.setItem('cart', JSON.stringify(this.cart));
+            }
+        }
+
+        // مدیریت گالری تصاویر
+        const images = ["AIR1.jpg", "AIR2.jpg", "AIR3.jpg", "AIR4.jpg", "AIR5.jpg"];
+        let currentImageIndex = 0;
+        
+        const mainImage = document.getElementById('mainImage');
+        const mainImageContainer = document.getElementById('mainImageContainer');
+        const zoomModal = document.getElementById('zoom-modal');
+        const zoomImage = document.getElementById('zoomImage');
+        const closeZoom = document.querySelector('.close-zoom');
+        const prevImage = document.getElementById('prevImage');
+        const nextImage = document.getElementById('nextImage');
+        const prevZoomImage = document.getElementById('prevZoomImage');
+        const nextZoomImage = document.getElementById('nextZoomImage');
+        
+        function updateMainImage() {
+            mainImage.src = images[currentImageIndex];
+            
+            // آپدیت حالت active تصویر بندانگشتی
+            document.querySelectorAll('.thumbnail').forEach((thumb, index) => {
+                if (index === currentImageIndex) {
+                    thumb.classList.add('active');
+                } else {
+                    thumb.classList.remove('active');
+                }
+            });
+        }
+        
+        // تغییر تصویر اصلی با کلیک روی تصاویر بندانگشتی
+        function changeImage(element, index) {
+            currentImageIndex = index;
+            updateMainImage();
+        }
+        
+        // تغییر تصویر بزرگنمایی با کلیک روی تصاویر بندانگشتی
+        function changeZoomImage(element, index) {
+            currentImageIndex = index;
+            zoomImage.src = images[currentImageIndex];
+            
+            // آپدیت حالت active تصویر بندانگشتی در بزرگنمایی
+            document.querySelectorAll('.zoom-thumbnail').forEach((thumb, idx) => {
+                if (idx === currentImageIndex) {
+                    thumb.classList.add('active');
+                } else {
+                    thumb.classList.remove('active');
+                }
+            });
+        }
+        
+        // رویدادهای تغییر تصویر
+        if (prevImage) {
+            prevImage.addEventListener('click', function() {
+                currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+                updateMainImage();
+            });
+        }
+        
+        if (nextImage) {
+            nextImage.addEventListener('click', function() {
+                currentImageIndex = (currentImageIndex + 1) % images.length;
+                updateMainImage();
+            });
+        }
+        
+        // رویدادهای تغییر تصویر در مدال بزرگنمایی
+        if (prevZoomImage) {
+            prevZoomImage.addEventListener('click', function() {
+                currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+                zoomImage.src = images[currentImageIndex];
+                
+                // آپدیت تصاویر بندانگشتی در بزرگنمایی
+                document.querySelectorAll('.zoom-thumbnail').forEach((thumb, index) => {
+                    thumb.classList.toggle('active', index === currentImageIndex);
+                });
+            });
+        }
+        
+        if (nextZoomImage) {
+            nextZoomImage.addEventListener('click', function() {
+                currentImageIndex = (currentImageIndex + 1) % images.length;
+                zoomImage.src = images[currentImageIndex];
+                
+                // آپدیت تصاویر بندانگشتی در بزرگنمایی
+                document.querySelectorAll('.zoom-thumbnail').forEach((thumb, index) => {
+                    thumb.classList.toggle('active', index === currentImageIndex);
+                });
+            });
+        }
+        
+        // باز کردن مدال بزرگنمایی
+        const zoomButton = document.getElementById('zoomButton');
+        if (zoomButton) {
+            zoomButton.addEventListener('click', function() {
+                zoomModal.style.display = 'flex';
+                zoomImage.src = mainImage.src;
+                document.body.style.overflow = 'hidden'; // جلوگیری از اسکرول صفحه
+                
+                // آپدیت تصاویر بندانگشتی در بزرگنمایی
+                document.querySelectorAll('.zoom-thumbnail').forEach((thumb, index) => {
+                    thumb.classList.toggle('active', index === currentImageIndex);
+                });
+            });
+        }
+        
+        // بستن مدال بزرگنمایی
+        if (closeZoom) {
+            closeZoom.addEventListener('click', function() {
+                zoomModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            });
+        }
+        
+        // بستن مدال با کلیک خارج از تصویر
+        if (zoomModal) {
+            zoomModal.addEventListener('click', function(e) {
+                if (e.target === zoomModal) {
+                    zoomModal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        }
+        
+        // بستن مدال با کلید ESC
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && zoomModal.style.display === 'flex') {
+                zoomModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // مدیریت مدال راهنمای سایز
+        const sizeGuideModal = document.getElementById('size-guide-modal');
+        const openSizeGuide = document.getElementById('openSizeGuide');
+        const closeSizeGuide = document.querySelector('.close-size-guide');
+        
+        if (openSizeGuide) {
+            openSizeGuide.addEventListener('click', function() {
+                sizeGuideModal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            });
+        }
+        
+        if (closeSizeGuide) {
+            closeSizeGuide.addEventListener('click', function() {
+                sizeGuideModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            });
+        }
+        
+        if (sizeGuideModal) {
+            sizeGuideModal.addEventListener('click', function(e) {
+                if (e.target === sizeGuideModal) {
+                    sizeGuideModal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        }
+        
+        // مدیریت مدال اشتراک‌گذاری
+        const shareModal = document.getElementById('share-modal');
+        const shareBtn = document.getElementById('shareBtn');
+        const closeShare = document.querySelector('.close-share');
+        const shareOptions = document.querySelectorAll('.share-option');
+        const copyLink = document.querySelector('.copy-link');
+        const shareUrl = document.querySelector('.share-url');
+        
+        if (shareBtn) {
+            shareBtn.addEventListener('click', function() {
+                shareModal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            });
+        }
+        
+        if (closeShare) {
+            closeShare.addEventListener('click', function() {
+                shareModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            });
+        }
+        
+        if (shareModal) {
+            shareModal.addEventListener('click', function(e) {
+                if (e.target === shareModal) {
+                    shareModal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        }
+        
+        // اشتراک‌گذاری در شبکه‌های اجتماعی
+        if (shareOptions) {
+            const pageTitle = document.querySelector('.product-title').textContent;
+            const pageUrl = window.location.href;
+            
+            shareOptions.forEach(option => {
+                option.addEventListener('click', function(e) {
+                    if (this.classList.contains('share-whatsapp')) {
+                        e.preventDefault();
+                        window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(pageTitle + ' - ' + pageUrl)}`, '_blank');
+                    } 
+                    else if (this.classList.contains('share-telegram')) {
+                        e.preventDefault();
+                        window.open(`https://t.me/share/url?url=${encodeURIComponent(pageUrl)}&text=${encodeURIComponent(pageTitle)}`, '_blank');
+                    }
+                    else if (this.classList.contains('share-twitter')) {
+                        e.preventDefault();
+                        window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(pageTitle)}&url=${encodeURIComponent(pageUrl)}`, '_blank');
+                    }
+                    else if (this.classList.contains('share-facebook')) {
+                        e.preventDefault();
+                        window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(pageUrl)}`, '_blank');
+                    }
+                    else if (this.classList.contains('share-email')) {
+                        e.preventDefault();
+                        window.location.href = `mailto:?subject=${encodeURIComponent(pageTitle)}&body=${encodeURIComponent('نگاهی به این محصول بیندازید: ' + pageUrl)}`;
+                    }
+                    // کلیک روی دکمه کپی لینک در آیتم‌های اشتراک‌گذاری
+                    else if (this.classList.contains('share-link')) {
+                        e.preventDefault();
+                        copyToClipboard(pageUrl);
+                        showShareNotification('لینک محصول کپی شد', 'success');
+                    }
+                });
+            });
+        }
+        
+        // کپی کردن لینک با دکمه کپی
+        if (copyLink && shareUrl) {
+            copyLink.addEventListener('click', function() {
+                copyToClipboard(shareUrl.value);
+                this.textContent = 'کپی شد!';
+                showShareNotification('لینک محصول کپی شد', 'success');
+                setTimeout(() => {
+                    this.textContent = 'کپی';
+                }, 2000);
+            });
+        }
+        
+        // تابع کپی به کلیپ‌بورد
+        function copyToClipboard(text) {
+            // برای دستگاه‌های مدرن
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(text)
+                    .catch(err => {
+                        console.error('خطا در کپی کردن متن:', err);
+                        fallbackCopyToClipboard(text);
+                    });
+            } else {
+                // روش جایگزین برای مرورگرهای قدیمی یا در صورت عدم دسترسی به API
+                fallbackCopyToClipboard(text);
+            }
+        }
+        
+        // روش جایگزین برای کپی به کلیپ‌بورد
+        function fallbackCopyToClipboard(text) {
+            const textArea = document.createElement('textarea');
+            textArea.value = text;
+            textArea.style.position = 'fixed';
+            textArea.style.opacity = '0';
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+            
+            try {
+                document.execCommand('copy');
+            } catch (err) {
+                console.error('خطا در کپی کردن متن:', err);
+            }
+            
+            document.body.removeChild(textArea);
+        }
+        
+        // نمایش نوتیفیکیشن برای اشتراک‌گذاری
+        function showShareNotification(message, type = 'success') {
+            const notification = document.getElementById('notification');
+            if (!notification) return;
+
+            notification.textContent = message;
+            notification.className = `notification ${type}`;
+            notification.style.display = 'block';
+
+            setTimeout(() => {
+                notification.style.display = 'none';
+            }, 3000);
+        }
+        
+        // به‌روزرسانی URL در فیلد اشتراک‌گذاری
+        document.addEventListener('DOMContentLoaded', () => {
+            if (shareUrl) {
+                shareUrl.value = window.location.href;
+            }
+        });
+        
+        // مدیریت تب‌ها
+        const tabButtons = document.querySelectorAll('.tab-btn');
+        const tabPanels = document.querySelectorAll('.tab-panel');
+        
+        if (tabButtons.length) {
+            tabButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const targetTab = this.dataset.tab;
+                    
+                    // فعال کردن دکمه تب
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // نمایش پنل مربوطه
+                    tabPanels.forEach(panel => {
+                        if (panel.id === targetTab) {
+                            panel.classList.add('active');
+                        } else {
+                            panel.classList.remove('active');
+                        }
+                    });
+                });
+            });
+        }
+        
+        // مدیریت سوالات متداول
+        const faqItems = document.querySelectorAll('.faq-item');
+        
+        if (faqItems.length) {
+            faqItems.forEach(item => {
+                const header = item.querySelector('.faq-header');
+                header.addEventListener('click', function() {
+                    item.classList.toggle('active');
+                });
+            });
+        }
+        
+        // راه‌اندازی سبد خرید
+        let cart;
+        document.addEventListener('DOMContentLoaded', () => {
+            // راه‌اندازی سبد خرید
+            cart = new ShoppingCart();
+            
+            // دسترسی به عناصر مورد نیاز برای بخش نظرات
+            const reviewsTab = document.getElementById('reviewsTab');
+            const reviewsLink = document.querySelector('.reviews-count a');
+            const addReviewBtn = document.getElementById('addReviewBtn');
+            const helpfulBtns = document.querySelectorAll('.helpful-btn');
+            const filterOptions = document.querySelectorAll('.filter-option');
+            const loadMoreBtn = document.querySelector('.load-more');
+            const reviewPhotos = document.querySelectorAll('.review-photo');
+            const replyLinks = document.querySelectorAll('.review-reply');
+            
+            // هدایت به بخش نظرات با کلیک روی لینک
+            if (reviewsLink) {
+                reviewsLink.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    if (reviewsTab) {
+                        // کلیک روی تب نظرات برای فعال‌سازی آن
+                        reviewsTab.click();
+                        
+                        // اسکرول به بخش نظرات
+                        setTimeout(() => {
+                            document.getElementById('reviews').scrollIntoView({behavior: 'smooth'});
+                        }, 100);
+                    }
+                });
+            }
+            
+            // عملکرد دکمه نظر جدید
+            if (addReviewBtn) {
+                addReviewBtn.addEventListener('click', function() {
+                    // نمایش پیام موقت
+                    showNotification('فرم ثبت نظر جدید در حال حاضر در دسترس نیست', 'info');
+                });
+            }
+            
+            // عملکرد دکمه‌های مفید بودن نظر
+            if (helpfulBtns && helpfulBtns.length > 0) {
+                helpfulBtns.forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        // دریافت متن فعلی دکمه
+                        const text = btn.textContent.trim();
+                        const isPositive = btn.querySelector('i').classList.contains('fa-thumbs-up');
+                        
+                        // استخراج عدد از متن
+                        const countMatch = text.match(/\d+/);
+                        const count = countMatch ? parseInt(countMatch[0]) : 0;
+                        
+                        if (!btn.classList.contains('voted')) {
+                            // افزایش شمارنده
+                            btn.innerHTML = isPositive ? 
+                                `<i class="fas fa-thumbs-up"></i> بله (${count + 1})` : 
+                                `<i class="fas fa-thumbs-down"></i> خیر (${count + 1})`;
+                                
+                            // نشانه‌گذاری که کاربر رأی داده است
+                            btn.classList.add('voted');
+                            btn.style.backgroundColor = isPositive ? 'var(--success)' : 'var(--accent)';
+                            btn.style.color = 'white';
+                            
+                            // غیرفعال کردن دکمه مقابل
+                            const siblingBtns = btn.parentElement.querySelectorAll('.helpful-btn');
+                            siblingBtns.forEach(siblingBtn => {
+                                if (siblingBtn !== btn) {
+                                    siblingBtn.classList.add('disabled');
+                                    siblingBtn.style.opacity = '0.5';
+                                    siblingBtn.style.cursor = 'default';
+                                }
+                            });
+                            
+                            // نمایش پیام تأیید
+                            showNotification(isPositive ? 'با تشکر از نظر شما' : 'ممنون از بازخورد شما', 'success');
+                        }
+                    });
+                });
+            }
+            
+            // عملکرد فیلتر نظرات
+            if (filterOptions && filterOptions.length > 0) {
+                filterOptions.forEach(option => {
+                    option.addEventListener('click', function() {
+                        // حذف کلاس active از همه گزینه‌ها
+                        filterOptions.forEach(opt => opt.classList.remove('active'));
+                        
+                        // فعال کردن گزینه انتخاب شده
+                        this.classList.add('active');
+                        
+                        // نمایش پیام فیلتر
+                        showNotification(`نظرات بر اساس "${this.textContent}" فیلتر شدند`, 'success');
+                    });
+                });
+            }
+            
+            // عملکرد دکمه نمایش نظرات بیشتر
+            if (loadMoreBtn) {
+                loadMoreBtn.addEventListener('click', function() {
+                    // نمایش حالت لودینگ
+                    this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> در حال بارگذاری...';
+                    this.disabled = true;
+                    
+                    setTimeout(() => {
+                        this.innerHTML = '<i class="fas fa-spinner"></i> نمایش نظرات بیشتر';
+                        this.disabled = false;
+                        showNotification('در حال حاضر نظر بیشتری موجود نیست', 'info');
+                    }, 1500);
+                });
+            }
+            
+            // نمایش تصاویر نظرات در حالت بزرگنمایی
+            if (reviewPhotos && reviewPhotos.length > 0) {
+                reviewPhotos.forEach(photo => {
+                    photo.addEventListener('click', function() {
+                        // دریافت مدال بزرگنمایی
+                        const zoomModal = document.getElementById('zoom-modal');
+                        const zoomImage = document.getElementById('zoomImage');
+                        
+                        if (zoomModal && zoomImage) {
+                            // نمایش تصویر در مدال بزرگنمایی
+                            zoomModal.style.display = 'flex';
+                            zoomImage.src = this.src;
+                            document.body.style.overflow = 'hidden';
+                            
+                            // تنظیم تصویر بندانگشتی فعال اگر ممکن است
+                            const photoSrc = this.src.split('/').pop();
+                            const photoIndex = images.findIndex(img => img === photoSrc);
+                            
+                            if (photoIndex !== -1) {
+                                currentImageIndex = photoIndex;
+                                document.querySelectorAll('.zoom-thumbnail').forEach((thumb, index) => {
+                                    thumb.classList.toggle('active', index === currentImageIndex);
+                                });
+                            }
+                        }
+                    });
+                });
+            }
+            
+            // اضافه کردن امکان پاسخ به نظرات
+            if (replyLinks && replyLinks.length > 0) {
+                replyLinks.forEach(link => {
+                    link.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        showNotification('امکان پاسخ به نظرات در حال حاضر فعال نیست', 'info');
+                    });
+                });
+            }
+        });
+        
+        // تابع نمایش نوتیفیکیشن - از تابع موجود استفاده می‌کنیم
+        function showNotification(message, type = 'success') {
+            const notification = document.getElementById('notification');
+            if (!notification) return;
+
+            notification.textContent = message;
+            notification.className = `notification ${type}`;
+            notification.style.display = 'block';
+
+            setTimeout(() => {
+                notification.style.display = 'none';
+            }, 3000);
+        }
+        // ... existing code ...
+
+// لودینگ اسکلتی حرفه‌ای (trend 2025)
+document.addEventListener('DOMContentLoaded', function () {
+    // ساختار اسکلت لودینگ
+    const skeleton = document.createElement('div');
+    skeleton.id = 'skeleton-loader';
+    skeleton.innerHTML = `
+      <style>
+        #skeleton-loader {
+          position: fixed;
+          inset: 0;
+          background: linear-gradient(120deg, #f5f7fa 60%, #e9eaf0 100%);
+          z-index: 9999;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: opacity 0.5s;
+        }
+        .skeleton-container {
+          width: 90vw;
+          max-width: 1200px;
+          display: grid;
+          grid-template-columns: 1fr 1.2fr;
+          gap: 2.5rem;
+          background: #fff;
+          border-radius: 24px;
+          box-shadow: 0 8px 32px rgba(93,63,211,0.10);
+          padding: 2.5rem;
+          animation: fadeIn 0.7s;
+        }
+        .skeleton-img, .skeleton-title, .skeleton-text, .skeleton-btn, .skeleton-badge, .skeleton-tab, .skeleton-review {
+          background: linear-gradient(90deg, #ececec 25%, #f5f5f5 50%, #ececec 75%);
+          background-size: 200% 100%;
+          animation: skeleton-loading 1.2s infinite linear;
+          border-radius: 12px;
+        }
+        .skeleton-img {
+          width: 320px;
+          height: 320px;
+          border-radius: 24px;
+          margin-bottom: 1.5rem;
+        }
+        .skeleton-thumbs {
+          display: flex;
+          gap: 0.5rem;
+        }
+        .skeleton-thumb {
+          width: 60px;
+          height: 60px;
+          border-radius: 10px;
+        }
+        .skeleton-title {
+          width: 60%;
+          height: 32px;
+          margin-bottom: 1.2rem;
+        }
+        .skeleton-badge {
+          width: 80px;
+          height: 20px;
+          margin-bottom: 0.7rem;
+        }
+        .skeleton-text {
+          width: 100%;
+          height: 16px;
+          margin-bottom: 0.7rem;
+        }
+        .skeleton-btn {
+          width: 160px;
+          height: 44px;
+          margin-top: 1.5rem;
+        }
+        .skeleton-tabs {
+          display: flex;
+          gap: 1rem;
+          margin: 2rem 0 1rem 0;
+        }
+        .skeleton-tab {
+          width: 100px;
+          height: 28px;
+        }
+        .skeleton-reviews {
+          margin-top: 1.5rem;
+        }
+        .skeleton-review {
+          width: 100%;
+          height: 48px;
+          margin-bottom: 0.8rem;
+        }
+        @keyframes skeleton-loading {
+          0% { background-position: 200% 0; }
+          100% { background-position: -200% 0; }
+        }
+        @keyframes fadeIn {
+          from { opacity: 0; transform: scale(0.98);}
+          to { opacity: 1; transform: scale(1);}
+        }
+        @media (max-width: 900px) {
+          .skeleton-container { grid-template-columns: 1fr; padding: 1.2rem;}
+          .skeleton-img { width: 100%; height: 220px;}
+        }
+      </style>
+      <div class="skeleton-container">
+        <div>
+          <div class="skeleton-img"></div>
+          <div class="skeleton-thumbs">
+            <div class="skeleton-thumb skeleton-img"></div>
+            <div class="skeleton-thumb skeleton-img"></div>
+            <div class="skeleton-thumb skeleton-img"></div>
+            <div class="skeleton-thumb skeleton-img"></div>
+          </div>
+        </div>
+        <div>
+          <div class="skeleton-badge"></div>
+          <div class="skeleton-title"></div>
+          <div class="skeleton-text"></div>
+          <div class="skeleton-text" style="width:80%"></div>
+          <div class="skeleton-text" style="width:60%"></div>
+          <div class="skeleton-btn"></div>
+          <div class="skeleton-tabs">
+            <div class="skeleton-tab"></div>
+            <div class="skeleton-tab"></div>
+            <div class="skeleton-tab"></div>
+          </div>
+          <div class="skeleton-reviews">
+            <div class="skeleton-review"></div>
+            <div class="skeleton-review"></div>
+          </div>
+        </div>
+      </div>
+    `;
+    document.body.appendChild(skeleton);
+
+    // حذف لودینگ بعد از 5 ثانیه
+    setTimeout(() => {
+        skeleton.style.opacity = '0';
+        setTimeout(() => {
+            skeleton.remove();
+        }, 500);
+    }, 3000);
+});
+    </script>
+</body>
+</html>

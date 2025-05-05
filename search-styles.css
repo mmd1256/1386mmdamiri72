@@ -1,0 +1,662 @@
+/* استایل سیستم جستجوی پیشرفته */
+:root {
+    --primary-color: #4721ff;
+    --primary-gradient: linear-gradient(135deg, #4721ff, #9747ff);
+    --text-color: #333;
+    --text-light: #666;
+    --border-color: #f0f0f0;
+    --background-light: #f9f9f9;
+    --background-hover: #f2f2f2;
+    --white: #fff;
+    --highlight-color: #ffe28f;
+}
+
+/* مودال جستجو */
+.search-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.98);
+    z-index: 1300;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    overflow-y: auto;
+}
+
+.search-modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.search-container {
+    width: 100%;
+    max-width: 1100px;
+    padding: 0 20px;
+    margin: 0;
+}
+
+.search-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px 0;
+    position: sticky;
+    top: 0;
+    background-color: var(--white);
+    z-index: 10;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.search-input-wrapper {
+    flex: 1;
+    max-width: 700px;
+    position: relative;
+    margin-left: 20px;
+}
+
+.search-icon {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: var(--primary-color);
+}
+
+#search-input {
+    width: 100%;
+    padding: 15px 50px 15px 40px;
+    border-radius: 12px;
+    border: 2px solid var(--border-color);
+    font-size: 16px;
+    outline: none;
+    transition: all 0.3s;
+}
+
+#search-input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(71, 33, 255, 0.1);
+}
+
+.clear-search {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: var(--text-light);
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+}
+
+.close-search {
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: var(--text-color);
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s;
+}
+
+.close-search:hover {
+    background-color: var(--background-hover);
+}
+
+.search-body {
+    padding: 20px 0 50px;
+}
+
+.search-content {
+    min-height: 400px;
+}
+
+/* بخش پیشنهادات جستجو */
+.search-suggestions {
+    display: block;
+}
+
+.search-section {
+    margin-bottom: 30px;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.section-header h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-color);
+    margin: 0;
+}
+
+.clear-all {
+    background: none;
+    border: none;
+    color: var(--primary-color);
+    font-size: 14px;
+    cursor: pointer;
+}
+
+/* پیشنهاد برندها */
+.brand-filters {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 15px;
+}
+
+.brand-filter-item {
+    background-color: var(--background-light);
+    border-radius: 12px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.brand-filter-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+}
+
+.brand-filter-item img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    filter: grayscale(0.5);
+    transition: all 0.3s;
+}
+
+.brand-filter-item:hover img {
+    filter: grayscale(0);
+}
+
+.brand-filter-item span {
+    font-size: 14px;
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+/* تاریخچه جستجو */
+.search-history-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.history-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 15px;
+    border-radius: 10px;
+    background-color: var(--background-light);
+    transition: all 0.3s;
+}
+
+.history-item:hover {
+    background-color: var(--background-hover);
+}
+
+.history-query {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    flex: 1;
+}
+
+.history-query i {
+    color: var(--text-light);
+    font-size: 18px;
+}
+
+.remove-history {
+    background: none;
+    border: none;
+    color: var(--text-light);
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.remove-history:hover {
+    color: #f44336;
+}
+
+.empty-list {
+    padding: 15px;
+    text-align: center;
+    color: var(--text-light);
+    background-color: var(--background-light);
+    border-radius: 10px;
+}
+
+/* جستجوهای پرطرفدار */
+.popular-searches {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.popular-item {
+    background-color: var(--background-light);
+    border-radius: 30px;
+    padding: 8px 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.popular-item:hover {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+.popular-item i {
+    font-size: 16px;
+    color: #ff6b6b;
+}
+
+.popular-item:hover i {
+    color: var(--white);
+}
+
+/* بخش نتایج جستجو */
+.search-results {
+    display: none;
+}
+
+.results-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 14px;
+    color: var(--text-light);
+}
+
+.search-filters {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.search-filter {
+    padding: 6px 12px;
+    border-radius: 20px;
+    border: none;
+    background-color: var(--background-light);
+    color: var(--text-light);
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.search-filter.active {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+.results-container {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.result-group {
+    margin-bottom: 30px;
+}
+
+.result-group-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: var(--text-color);
+    position: relative;
+}
+
+.result-group-title::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    right: 0;
+    width: 40px;
+    height: 3px;
+    background: var(--primary-gradient);
+    border-radius: 3px;
+}
+
+/* نتایج محصولات */
+.product-result-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.product-result-item {
+    background-color: var(--white);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.product-result-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.product-result-image {
+    height: 160px;
+    overflow: hidden;
+}
+
+.product-result-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.product-result-item:hover .product-result-image img {
+    transform: scale(1.05);
+}
+
+.product-result-info {
+    padding: 15px;
+}
+
+.product-result-info h4 {
+    font-size: 15px;
+    font-weight: 600;
+    margin: 0 0 10px;
+    line-height: 1.4;
+    color: var(--text-color);
+}
+
+.product-result-meta {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+    font-size: 12px;
+    color: var(--text-light);
+}
+
+.product-result-price {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.product-result-price .current-price {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.product-result-price .old-price {
+    font-size: 13px;
+    color: var(--text-light);
+    text-decoration: line-through;
+}
+
+/* نتایج دسته‌بندی */
+.category-result-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.category-result-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    background-color: var(--white);
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.category-result-item:hover {
+    transform: translateX(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.category-result-item i {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    background: linear-gradient(135deg, rgba(71, 33, 255, 0.1), rgba(151, 71, 255, 0.1));
+    color: var(--primary-color);
+    font-size: 24px;
+}
+
+.category-result-info {
+    flex: 1;
+}
+
+.category-result-info h4 {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0 0 5px;
+    color: var(--text-color);
+}
+
+.category-result-info span {
+    font-size: 13px;
+    color: var(--text-light);
+}
+
+/* نتایج برند */
+.brand-result-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.brand-result-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    background-color: var(--white);
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.brand-result-item:hover {
+    transform: translateX(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.brand-result-item img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.brand-result-info {
+    flex: 1;
+}
+
+.brand-result-info h4 {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0 0 5px;
+    color: var(--text-color);
+}
+
+.brand-result-info span {
+    font-size: 13px;
+    color: var(--text-light);
+}
+
+/* بدون نتیجه */
+.no-results {
+    padding: 40px 20px;
+    text-align: center;
+    background-color: var(--background-light);
+    border-radius: 12px;
+    color: var(--text-color);
+}
+
+.no-results i {
+    font-size: 48px;
+    color: var(--text-light);
+    margin-bottom: 15px;
+}
+
+.no-results h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.no-results p {
+    color: var(--text-light);
+    font-size: 14px;
+}
+
+/* برجسته‌سازی عبارت جستجو */
+.highlight {
+    background-color: var(--highlight-color);
+    padding: 0 2px;
+    border-radius: 3px;
+}
+
+/* مودال بک‌دراپ */
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modal-backdrop.active {
+    display: block;
+    opacity: 1;
+}
+
+/* استایل‌های ریسپانسیو */
+@media (max-width: 992px) {
+    .search-input-wrapper {
+        max-width: 500px;
+    }
+    
+    .brand-filters {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .product-result-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .search-header {
+        padding: 20px 0;
+    }
+    
+    .search-input-wrapper {
+        max-width: none;
+    }
+    
+    .brand-filters {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .search-filters {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 5px;
+    }
+    
+    .results-info {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+}
+
+@media (max-width: 576px) {
+    .search-container {
+        padding: 0 15px;
+    }
+    
+    .brand-filters {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .product-result-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    #search-input {
+        padding: 12px 45px 12px 35px;
+        font-size: 14px;
+    }
+    
+    .search-icon {
+        right: 12px;
+        font-size: 18px;
+    }
+    
+    .clear-search {
+        left: 12px;
+        font-size: 18px;
+    }
+    
+    .close-search {
+        font-size: 22px;
+        width: 35px;
+        height: 35px;
+    }
+} 

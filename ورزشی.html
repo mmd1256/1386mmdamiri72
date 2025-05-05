@@ -1,0 +1,1549 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>کفش‌های ورزشی | آمیریستور</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css">
+    <style>
+        :root {
+            --primary: #0055FF;
+            --secondary: #111111;
+            --light: #F8F9FA;
+            --dark: #212529;
+            --accent: #FF3E5F;
+            --surface: #FFFFFF;
+            --text: #333333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Vazirmatn', sans-serif;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--text);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: var(--surface);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .header-actions button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 24px;
+            color: var(--text);
+            transition: color 0.3s;
+        }
+
+        .header-actions button:hover {
+            color: var(--primary);
+        }
+
+        .hero {
+            height: 70vh;
+            background: linear-gradient(135deg, var(--primary), #7000FF);
+            color: white;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('pattern.svg');
+            opacity: 0.1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 600px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: white;
+            color: var(--primary);
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .filters-container {
+            background-color: var(--surface);
+            padding: 20px;
+            margin: 40px 0;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .filters-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .filters-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .filters-actions {
+            display: flex;
+            gap: 15px;
+        }
+
+        .filter-button {
+            background-color: var(--light);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: background 0.3s;
+        }
+
+        .filter-button:hover {
+            background-color: #EAEAEA;
+        }
+
+        .filters-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .filter-group {
+            margin-bottom: 20px;
+        }
+
+        .filter-group h4 {
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .filter-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .filter-option {
+            padding: 8px 16px;
+            background-color: var(--light);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .filter-option:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .filter-option.active {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .product-card {
+            background-color: var(--surface);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--accent);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            z-index: 2;
+        }
+
+        .product-image {
+            height: 300px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.1);
+        }
+
+        .product-actions {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            opacity: 0;
+            transform: translateX(-10px);
+            transition: opacity 0.3s, transform 0.3s;
+        }
+
+        .product-card:hover .product-actions {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .product-action {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: white;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background 0.3s, color 0.3s;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-action:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .product-content {
+            padding: 20px;
+        }
+
+        .product-brand {
+            font-size: 0.9rem;
+            color: #777;
+            margin-bottom: 5px;
+        }
+
+        .product-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .product-price {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .product-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .product-rating {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .product-stars {
+            color: #FFB800;
+        }
+
+        .add-to-cart {
+            padding: 8px 16px;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+
+        .add-to-cart:hover {
+            background-color: #004BE0;
+        }
+
+        .color-options {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
+        .color-option {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 2px solid white;
+            box-shadow: 0 0 0 1px #e0e0e0;
+            transition: transform 0.3s;
+        }
+
+        .color-option:hover {
+            transform: scale(1.2);
+        }
+
+        .color-option.active {
+            transform: scale(1.2);
+            box-shadow: 0 0 0 2px var(--primary);
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 50px 0;
+        }
+
+        .pagination-item {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .pagination-item:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .pagination-item.active {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .three-d-view {
+            background-color: var(--surface);
+            padding: 60px 0;
+            margin: 60px 0;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+
+        .section-description {
+            max-width: 600px;
+            margin: 0 auto 40px;
+            color: #666;
+        }
+
+        .model-viewer {
+            width: 100%;
+            height: 500px;
+            background-color: #f0f0f0;
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .model-controls {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .model-control {
+            padding: 10px 20px;
+            background-color: var(--light);
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: background 0.3s;
+        }
+
+        .model-control:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .features-section {
+            padding: 60px 0;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .feature-card {
+            background-color: var(--surface);
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-icon {
+            font-size: 40px;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .feature-title {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        .feature-description {
+            color: #666;
+        }
+
+        .newsletter {
+            background: linear-gradient(135deg, var(--primary), #7000FF);
+            padding: 60px 0;
+            color: white;
+            text-align: center;
+            border-radius: 20px;
+            margin: 60px 0;
+        }
+
+        .newsletter-title {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .newsletter-description {
+            max-width: 600px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+
+        .newsletter-form {
+            max-width: 500px;
+            margin: 0 auto;
+            display: flex;
+            overflow: hidden;
+            border-radius: 50px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 15px 25px;
+            border: none;
+            outline: none;
+            font-size: 1rem;
+        }
+
+        .newsletter-button {
+            background-color: var(--accent);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .newsletter-button:hover {
+            background-color: #E01B45;
+        }
+
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h4 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--primary);
+            border-radius: 1.5px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .footer-links a {
+            color: #BBB;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: background 0.3s;
+        }
+
+        .social-icon:hover {
+            background-color: var(--primary);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #BBB;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 1024px) {
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero {
+                height: 90vh;
+            }
+            
+            .filters-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* 2025 Modern Effects */
+        .glassmorphism {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .neumorphism {
+            background: #f0f0f0;
+            box-shadow: 10px 10px 20px #d1d1d1, -10px -10px 20px #ffffff;
+            border-radius: 20px;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, var(--primary), #7000FF);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 700;
+        }
+
+        .parallax-scroll {
+            transform-style: preserve-3d;
+            will-change: transform;
+        }
+
+        .motion-blur {
+            transition: all 0.3s;
+        }
+
+        .motion-blur:hover {
+            filter: blur(5px);
+        }
+
+        .hover-float {
+            transition: transform 0.3s;
+        }
+
+        .hover-float:hover {
+            transform: translateY(-5px);
+        }
+
+        .floating-animation {
+            animation: floating 3s infinite ease-in-out;
+        }
+
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .magnetic-button {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .magnetic-button::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 5px;
+            height: 5px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            transition: width 0.3s, height 0.3s, opacity 0.3s;
+        }
+
+        .magnetic-button:hover::after {
+            width: 300px;
+            height: 300px;
+            opacity: 1;
+        }
+
+        .skeleton-loader {
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            animation: loading 1.5s infinite;
+        }
+
+        @keyframes loading {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+    
+    /* ... existing styles ... */
+
+    /* Media Queries برای ریسپانسیو */
+    @media (max-width: 1200px) {
+        .products-grid {
+            grid-template-columns: repeat(3, 1fr);
+        }
+        
+        .features-grid {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+    
+    @media (max-width: 992px) {
+        .products-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        
+        .features-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        
+        .footer-grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+        
+        .hero h1 {
+            font-size: 2.8rem;
+        }
+        
+        .header-container {
+            flex-wrap: wrap;
+        }
+        
+        .nav-links {
+            order: 3;
+            width: 100%;
+            margin-top: 15px;
+            justify-content: center;
+        }
+    }
+    
+    @media (max-width: 768px) {
+        .header-container {
+            flex-direction: column;
+            padding: 15px 0;
+        }
+        
+        .nav-links {
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 15px;
+            justify-content: center;
+        }
+        
+        .header-actions {
+            margin-top: 15px;
+        }
+        
+        .hero {
+            height: auto;
+            padding: 60px 0;
+        }
+        
+        .hero h1 {
+            font-size: 2.2rem;
+        }
+        
+        .hero p {
+            font-size: 1rem;
+        }
+        
+        .filters-grid {
+            grid-template-columns: 1fr;
+        }
+        
+        .model-viewer {
+            height: 350px;
+        }
+        
+        .model-controls {
+            flex-wrap: wrap;
+        }
+        
+        .newsletter-form {
+            flex-direction: column;
+            border-radius: 15px;
+        }
+        
+        .newsletter-input {
+            width: 100%;
+            border-radius: 15px 15px 0 0;
+            text-align: center;
+        }
+        
+        .newsletter-button {
+            width: 100%;
+            border-radius: 0 0 15px 15px;
+            padding: 12px;
+        }
+    }
+    
+    @media (max-width: 576px) {
+        .products-grid {
+            grid-template-columns: 1fr;
+        }
+        
+        .product-card {
+            max-width: 350px;
+            margin: 0 auto;
+        }
+        
+        .features-grid {
+            grid-template-columns: 1fr;
+        }
+        
+        .footer-grid {
+            grid-template-columns: 1fr;
+        }
+        
+        .pagination {
+            flex-wrap: wrap;
+        }
+        
+        .section-title {
+            font-size: 1.5rem;
+        }
+        
+        .filters-header {
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .filters-actions {
+            width: 100%;
+            justify-content: space-between;
+        }
+        
+        .feature-card {
+            padding: 20px;
+        }
+        
+        .three-d-view {
+            padding: 40px 0;
+        }
+        
+        .newsletter {
+            padding: 40px 20px;
+            margin: 40px 0;
+        }
+        
+        .newsletter-title {
+            font-size: 1.5rem;
+        }
+    }
+    
+    @media (max-width: 400px) {
+        .header-actions {
+            gap: 10px;
+        }
+        
+        .header-actions button {
+            font-size: 20px;
+        }
+        
+        .nav-links {
+            gap: 10px;
+        }
+        
+        .nav-links a {
+            font-size: 0.9rem;
+        }
+        
+        .hero h1 {
+            font-size: 1.8rem;
+        }
+        
+        .pagination-item {
+            width: 35px;
+            height: 35px;
+        }
+        
+        .product-title {
+            font-size: 1.1rem;
+        }
+    }
+    
+    /* بهینه‌سازی منوی موبایل */
+    .mobile-menu-toggle {
+        display: none;
+        background: none;
+        border: none;
+        font-size: 24px;
+        cursor: pointer;
+        color: var(--text);
+    }
+    
+    @media (max-width: 992px) {
+        .mobile-menu-toggle {
+            display: block;
+            order: 3;
+        }
+        
+        .nav-links {
+            display: none;
+            width: 100%;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px 0;
+            background-color: var(--surface);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            margin-top: 15px;
+        }
+        
+        .nav-links.active {
+            display: flex;
+        }
+        
+        .nav-links a {
+            padding: 10px 0;
+            width: 100%;
+            text-align: center;
+        }
+    }
+
+
+    </style>
+    <link href="https://cdn.jsdelivr.net/npm/vazirmatn@33.0.3/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-container">
+                <a href="index.html" class="logo">آمیریستور</a>
+                <nav class="nav-links">
+                    <a href="index.html">خانه</a>
+                    <a href="ورزشی.html" class="active">کفش ورزشی</a>
+                    <a href="#">مجلسی</a>
+                    <a href="#">راحتی</a>
+                    <a href="#">برندها</a>
+                    <a href="#">تخفیف‌ها</a>
+                </nav>
+                <div class="header-actions">
+                    <button aria-label="جستجو"><i class="ri-search-line"></i></button>
+                    <button aria-label="حساب کاربری"><i class="ri-user-line"></i></button>
+                    <button aria-label="علاقه‌مندی‌ها"><i class="ri-heart-line"></i></button>
+                    <button aria-label="سبد خرید"><i class="ri-shopping-bag-line"></i></button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>جدیدترین کفش‌های ورزشی</h1>
+                <p>با پیشرفته‌ترین فناوری‌ها برای عملکرد بهتر و راحتی بیشتر در ورزش‌های مختلف</p>
+                <a href="#products" class="cta-button magnetic-button">مشاهده محصولات</a>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <section class="filters-container glassmorphism">
+            <div class="filters-header">
+                <h2 class="filters-title">فیلترها</h2>
+                <div class="filters-actions">
+                    <button class="filter-button"><i class="ri-filter-3-line"></i> مرتب‌سازی</button>
+                    <button class="filter-button"><i class="ri-refresh-line"></i> پاک کردن</button>
+                </div>
+            </div>
+            <div class="filters-grid">
+                <div class="filter-group">
+                    <h4>برند</h4>
+                    <div class="filter-options">
+                        <div class="filter-option active">نایک</div>
+                        <div class="filter-option">آدیداس</div>
+                        <div class="filter-option">پوما</div>
+                        <div class="filter-option">آندر آرمور</div>
+                        <div class="filter-option">ریبوک</div>
+                    </div>
+                </div>
+                <div class="filter-group">
+                    <h4>جنسیت</h4>
+                    <div class="filter-options">
+                        <div class="filter-option">مردانه</div>
+                        <div class="filter-option active">زنانه</div>
+                        <div class="filter-option">یونیسکس</div>
+                    </div>
+                </div>
+                <div class="filter-group">
+                    <h4>رنگ</h4>
+                    <div class="filter-options">
+                        <div class="color-option active" style="background-color: white;"></div>
+                        <div class="color-option" style="background-color: black;"></div>
+                        <div class="color-option" style="background-color: red;"></div>
+                        <div class="color-option" style="background-color: blue;"></div>
+                        <div class="color-option" style="background-color: green;"></div>
+                    </div>
+                </div>
+                <div class="filter-group">
+                    <h4>قیمت</h4>
+                    <div class="filter-options">
+                        <div class="filter-option">زیر ۵۰۰ هزار تومان</div>
+                        <div class="filter-option active">۵۰۰ تا یک میلیون تومان</div>
+                        <div class="filter-option">بیش از یک میلیون تومان</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="products" class="products-section">
+            <div class="products-grid">
+                <!-- محصول ۱ -->
+                <div class="product-card hover-float">
+                    <div class="product-badge">جدید</div>
+                    <div class="product-image">
+                        <img src="ادیداس1.jpg" alt="کفش ورزشی نایک">
+                        <div class="product-actions">
+                            <div class="product-action"><i class="ri-heart-line"></i></div>
+                            <div class="product-action"><i class="ri-eye-line"></i></div>
+                            <div class="product-action"><i class="ri-share-line"></i></div>
+                        </div>
+                    </div>
+                    <div class="product-content">
+                        <div class="product-brand">نایک</div>
+                        <h3 class="product-title">ایر مکس ۲۷۰ پلاس</h3>
+                        <div class="color-options">
+                            <div class="color-option active" style="background-color: #FF3E5F;"></div>
+                            <div class="color-option" style="background-color: #3E4FFF;"></div>
+                            <div class="color-option" style="background-color: #111111;"></div>
+                        </div>
+                        <div class="product-price">۹۸۵,۰۰۰ تومان</div>
+                        <div class="product-meta">
+                            <div class="product-rating">
+                                <div class="product-stars">
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-half-fill"></i>
+                                </div>
+                                <span>۴.۵</span>
+                            </div>
+                            <button class="add-to-cart">افزودن به سبد</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- محصول ۲ -->
+                <div class="product-card hover-float">
+                    <div class="product-badge">تخفیف ۲۰٪</div>
+                    <div class="product-image">
+                        <img src="ادیداس1.jpg" alt="کفش ورزشی آدیداس">
+                        <div class="product-actions">
+                            <div class="product-action"><i class="ri-heart-line"></i></div>
+                            <div class="product-action"><i class="ri-eye-line"></i></div>
+                            <div class="product-action"><i class="ri-share-line"></i></div>
+                        </div>
+                    </div>
+                    <div class="product-content">
+                        <div class="product-brand">آدیداس</div>
+                        <h3 class="product-title">الترابوست ۲۲</h3>
+                        <div class="color-options">
+                            <div class="color-option" style="background-color: white;"></div>
+                            <div class="color-option active" style="background-color: black;"></div>
+                            <div class="color-option" style="background-color: #00A3FF;"></div>
+                        </div>
+                        <div class="product-price">۸۷۵,۰۰۰ تومان</div>
+                        <div class="product-meta">
+                            <div class="product-rating">
+                                <div class="product-stars">
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-line"></i>
+                                </div>
+                                <span>۴.۰</span>
+                            </div>
+                            <button class="add-to-cart">افزودن به سبد</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- محصول ۳ -->
+                <div class="product-card hover-float">
+                    <div class="product-badge">پرفروش</div>
+                    <div class="product-image">
+                        <img src="ادیداس1.jpg" alt="کفش ورزشی پوما">
+                        <div class="product-actions">
+                            <div class="product-action"><i class="ri-heart-line"></i></div>
+                            <div class="product-action"><i class="ri-eye-line"></i></div>
+                            <div class="product-action"><i class="ri-share-line"></i></div>
+                        </div>
+                    </div>
+                    <div class="product-content">
+                        <div class="product-brand">پوما</div>
+                        <h3 class="product-title">نایترو پرو رانینگ</h3>
+                        <div class="color-options">
+                            <div class="color-option" style="background-color: #00FFB3;"></div>
+                            <div class="color-option" style="background-color: #FF00AA;"></div>
+                            <div class="color-option active" style="background-color: #FFC800;"></div>
+                        </div>
+                        <div class="product-price">۷۵۵,۰۰۰ تومان</div>
+                        <div class="product-meta">
+                            <div class="product-rating">
+                                <div class="product-stars">
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
+                                </div>
+                                <span>۵.۰</span>
+                            </div>
+                            <button class="add-to-cart">افزودن به سبد</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- محصول ۴ -->
+                <div class="product-card hover-float">
+                    <div class="product-image">
+                        <img src="ادیداس1.jpg" alt="کفش ورزشی آندر آرمور">
+                        <div class="product-actions">
+                            <div class="product-action"><i class="ri-heart-line"></i></div>
+                            <div class="product-action"><i class="ri-eye-line"></i></div>
+                            <div class="product-action"><i class="ri-share-line"></i></div>
+                        </div>
+                    </div>
+                    <div class="product-content">
+                        <div class="product-brand">آندر آرمور</div>
+                        <h3 class="product-title">هوراش ۳ رانینگ</h3>
+                        <div class="color-options">
+                            <div class="color-option active" style="background-color: #111111;"></div>
+                            <div class="color-option" style="background-color: #666666;"></div>
+                            <div class="color-option" style="background-color: #3300FF;"></div>
+                        </div>
+                        <div class="product-price">۶۴۵,۰۰۰ تومان</div>
+                        <div class="product-meta">
+                            <div class="product-rating">
+                                <div class="product-stars">
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-half-fill"></i>
+                                    <i class="ri-star-line"></i>
+                                </div>
+                                <span>۳.۵</span>
+                            </div>
+                            <button class="add-to-cart">افزودن به سبد</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- محصول ۵ -->
+                <div class="product-card hover-float">
+                    <div class="product-badge">محدود</div>
+                    <div class="product-image">
+                        <img src="ادیداس1.jpg" alt="کفش ورزشی ریبوک">
+                        <div class="product-actions">
+                            <div class="product-action"><i class="ri-heart-line"></i></div>
+                            <div class="product-action"><i class="ri-eye-line"></i></div>
+                            <div class="product-action"><i class="ri-share-line"></i></div>
+                        </div>
+                    </div>
+                    <div class="product-content">
+                        <div class="product-brand">ریبوک</div>
+                        <h3 class="product-title">نانو X۳ کراس‌فیت</h3>
+                        <div class="color-options">
+                            <div class="color-option" style="background-color: #001AFF;"></div>
+                            <div class="color-option active" style="background-color: #FF0000;"></div>
+                            <div class="color-option" style="background-color: white;"></div>
+                        </div>
+                        <div class="product-price">۸۲۰,۰۰۰ تومان</div>
+                        <div class="product-meta">
+                            <div class="product-rating">
+                                <div class="product-stars">
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-line"></i>
+                                </div>
+                                <span>۴.۰</span>
+                            </div>
+                            <button class="add-to-cart">افزودن به سبد</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- محصول ۶ -->
+                <div class="product-card hover-float">
+                    <div class="product-image">
+                        <img src="ادیداس1.jpg" alt="کفش ورزشی نیو بالانس">
+                        <div class="product-actions">
+                            <div class="product-action"><i class="ri-heart-line"></i></div>
+                            <div class="product-action"><i class="ri-eye-line"></i></div>
+                            <div class="product-action"><i class="ri-share-line"></i></div>
+                        </div>
+                    </div>
+                    <div class="product-content">
+                        <div class="product-brand">نیو بالانس</div>
+                        <h3 class="product-title">فرش فوم ۱۰۸۰</h3>
+                        <div class="color-options">
+                            <div class="color-option" style="background-color: #7B00FF;"></div>
+                            <div class="color-option active" style="background-color: #00FFE0;"></div>
+                            <div class="color-option" style="background-color: #FF7B00;"></div>
+                        </div>
+                        <div class="product-price">۷۴۵,۰۰۰ تومان</div>
+                        <div class="product-meta">
+                            <div class="product-rating">
+                                <div class="product-stars">
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-half-fill"></i>
+                                </div>
+                                <span>۴.۵</span>
+                            </div>
+                            <button class="add-to-cart">افزودن به سبد</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pagination">
+                <div class="pagination-item active">۱</div>
+                <div class="pagination-item">۲</div>
+                <div class="pagination-item">۳</div>
+                <div class="pagination-item">۴</div>
+                <div class="pagination-item">۵</div>
+                <div class="pagination-item"><i class="ri-arrow-left-s-line"></i></div>
+            </div>
+        </section>
+
+        <section class="three-d-view">
+            <h2 class="section-title gradient-text">نمایش سه‌بعدی محصول</h2>
+            <p class="section-description">کفش مورد نظر خود را به صورت سه بعدی بررسی کنید و از تمام زوایا مشاهده نمایید</p>
+            <div class="model-viewer">
+                <!-- اینجا مدل سه بعدی قرار می‌گیرد -->
+                <model-viewer src="shoe-model.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls poster="poster.webp" shadow-intensity="1" auto-rotate>
+                    <button slot="ar-button" class="ar-button">
+                        نمایش در فضای واقعی <i class="ri-augmented-reality-line"></i>
+                    </button>
+                </model-viewer>
+            </div>
+            <div class="model-controls">
+                <button class="model-control"><i class="ri-rotate-line"></i> چرخش خودکار</button>
+                <button class="model-control"><i class="ri-zoom-in-line"></i> بزرگنمایی</button>
+                <button class="model-control"><i class="ri-contrast-2-line"></i> تغییر رنگ</button>
+                <button class="model-control"><i class="ri-screenshot-line"></i> اسکرین‌شات</button>
+            </div>
+        </section>
+
+        <section class="features-section">
+            <h2 class="section-title gradient-text">ویژگی‌های کفش‌های ورزشی ما</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon floating-animation"><i class="ri-rocket-line"></i></div>
+                    <h3 class="feature-title">سبک و انعطاف‌پذیر</h3>
+                    <p class="feature-description">کفش‌های با وزن کم و انعطاف بالا برای آزادی حرکت بیشتر و خستگی کمتر در طول تمرین</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon floating-animation"><i class="ri-bubble-chart-line"></i></div>
+                    <h3 class="feature-title">فناوری جذب ضربه</h3>
+                    <p class="feature-description">سیستم پیشرفته جذب ضربه برای محافظت از مفاصل و کاهش فشار وارد بر پا</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon floating-animation"><i class="ri-shield-check-line"></i></div>
+                    <h3 class="feature-title">پایداری و حمایت</h3>
+                    <p class="feature-description">طراحی مخصوص برای حمایت از قوس پا و جلوگیری از آسیب‌دیدگی در حرکات جانبی</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon floating-animation"><i class="ri-drop-line"></i></div>
+                    <h3 class="feature-title">تنفس‌پذیری</h3>
+                    <p class="feature-description">پارچه‌های نانو با تکنولوژی تنفس‌پذیری بالا برای حفظ خشکی و خنکی پا در طول فعالیت</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon floating-animation"><i class="ri-recycle-line"></i></div>
+                    <h3 class="feature-title">مواد پایدار</h3>
+                    <p class="feature-description">استفاده از مواد بازیافتی و دوستدار محیط زیست برای کاهش ردپای کربن</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon floating-animation"><i class="ri-smartphone-line"></i></div>
+                    <h3 class="feature-title">هوشمند و متصل</h3>
+                    <p class="feature-description">سنسورهای داخلی برای اندازه‌گیری عملکرد و اتصال به اپلیکیشن‌های تناسب اندام</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="newsletter">
+            <h2 class="newsletter-title">عضویت در خبرنامه</h2>
+            <p class="newsletter-description">برای اطلاع از آخرین محصولات، تخفیف‌ها و رویدادهای ویژه در خبرنامه ما عضو شوید</p>
+            <form class="newsletter-form">
+                <input type="email" class="newsletter-input" placeholder="ایمیل خود را وارد کنید">
+                <button type="submit" class="newsletter-button">عضویت <i class="ri-send-plane-line"></i></button>
+            </form>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h4>درباره ما</h4>
+                    <div class="footer-links">
+                        <a href="#">داستان ما</a>
+                        <a href="#">تیم ما</a>
+                        <a href="#">همکاری با ما</a>
+                        <a href="#">مسئولیت اجتماعی</a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>خدمات مشتریان</h4>
+                    <div class="footer-links">
+                        <a href="#">راهنمای خرید</a>
+                        <a href="#">شیوه‌های پرداخت</a>
+                        <a href="#">روش‌های ارسال</a>
+                        <a href="#">شرایط مرجوعی</a>
+                        <a href="#">سوالات متداول</a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>دسته‌بندی محصولات</h4>
+                    <div class="footer-links">
+                        <a href="#">کفش ورزشی</a>
+                        <a href="#">کفش راحتی</a>
+                        <a href="#">کفش مجلسی</a>
+                        <a href="#">کفش پیاده‌روی</a>
+                        <a href="#">کفش کوهنوردی</a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>ارتباط با ما</h4>
+                    <div class="footer-links">
+                        <a href="#">تهران، خیابان ولیعصر، پلاک ۱۲۳</a>
+                        <a href="#">info@amiristor.shop</a>
+                        <a href="#">۰۲۱-۱۲۳۴۵۶۷۸</a>
+                    </div>
+                    <div class="footer-social">
+                        <a href="#" class="social-icon"><i class="ri-instagram-line"></i></a>
+                        <a href="#" class="social-icon"><i class="ri-telegram-line"></i></a>
+                        <a href="#" class="social-icon"><i class="ri-twitter-x-line"></i></a>
+                        <a href="#" class="social-icon"><i class="ri-linkedin-line"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© ۱۴۰۳ آمیریستور - تمامی حقوق محفوظ است</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    <script>
+        // اضافه کردن انیمیشن‌های مدرن و تعاملی
+        document.addEventListener('DOMContentLoaded', function() {
+            // انیمیشن پارالاکس برای محصولات
+            const productCards = document.querySelectorAll('.product-card');
+            
+            window.addEventListener('scroll', function() {
+                productCards.forEach((card, index) => {
+                    const speed = 1 + (index * 0.05);
+                    const yPos = -(window.scrollY * speed / 10);
+                    card.style.transform = `translateY(${yPos}px)`;
+                });
+            });
+
+            // افکت مغناطیسی برای دکمه‌ها
+            const magneticButtons = document.querySelectorAll('.magnetic-button');
+            
+            magneticButtons.forEach(button => {
+                button.addEventListener('mousemove', function(e) {
+                    const position = button.getBoundingClientRect();
+                    const x = e.clientX - position.left - position.width / 2;
+                    const y = e.clientY - position.top - position.height / 2;
+                    
+                    button.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
+                });
+                
+                button.addEventListener('mouseout', function() {
+                    button.style.transform = 'translate(0, 0)';
+                });
+            });
+
+            // فیلتر محصولات با انیمیشن
+            const filterOptions = document.querySelectorAll('.filter-option');
+            
+            filterOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    // حذف کلاس فعال از همه گزینه‌های هم گروه
+                    const parent = this.parentNode;
+                    parent.querySelectorAll('.filter-option').forEach(opt => {
+                        opt.classList.remove('active');
+                    });
+                    
+                    // اضافه کردن کلاس فعال به گزینه انتخاب شده
+                    this.classList.add('active');
+                    
+                    // انیمیشن فیلتر کردن محصولات (در اینجا فقط نمایشی است)
+                    const products = document.querySelectorAll('.product-card');
+                    products.forEach(product => {
+                        product.style.opacity = '0.3';
+                        setTimeout(() => {
+                            product.style.opacity = '1';
+                        }, 500);
+                    });
+                });
+            });
+
+            // کنترل‌های مدل سه بعدی
+            const modelControls = document.querySelectorAll('.model-control');
+            const modelViewer = document.querySelector('model-viewer');
+            
+            if (modelViewer) {
+                modelControls[0].addEventListener('click', function() {
+                    modelViewer.autoRotate = !modelViewer.autoRotate;
+                });
+                
+                modelControls[1].addEventListener('click', function() {
+                    modelViewer.fieldOfView = modelViewer.fieldOfView * 0.9;
+                });
+            }
+        });
+        
+
+
+    // ... existing scripts ...
+    
+    // عملکرد منوی موبایل
+    document.addEventListener('DOMContentLoaded', function() {
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        
+        if (mobileMenuToggle) {
+            mobileMenuToggle.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+                
+                if (navLinks.classList.contains('active')) {
+                    mobileMenuToggle.innerHTML = '<i class="ri-close-line"></i>';
+                } else {
+                    mobileMenuToggle.innerHTML = '<i class="ri-menu-line"></i>';
+                }
+            });
+        }
+        
+        // بستن منو با کلیک روی لینک‌ها
+        const navItems = document.querySelectorAll('.nav-links a');
+        navItems.forEach(item => {
+            item.addEventListener('click', function() {
+                if (window.innerWidth <= 992) {
+                    navLinks.classList.remove('active');
+                    mobileMenuToggle.innerHTML = '<i class="ri-menu-line"></i>';
+                }
+            });
+        });
+           });
+
+    </script>
+</body>
+</html>
